@@ -130,9 +130,51 @@ projectCards.forEach(card => {
 
 // ===== 8. DONNÉES PROJETS =====
 const projectsData = {
+    'snake-c': {
+        title: 'Snake — Langage C',
+        image: 'assets/img/projet-snake-c.svg',
+        description: `
+            <h3>Jeu du Serpent en langage C — Projet d'équipe</h3>
+
+            <p><strong>Contexte :</strong> Dans le cadre du cours de programmation en BTS SIO SLAM, notre équipe de 3 étudiants a reçu pour mission de développer un jeu du serpent en langage C. Le point de départ était un programme Snake existant trouvé en ligne, que nous devions analyser, comprendre et enrichir selon un cahier des charges précis imposé par le professeur.</p>
+
+            <p><strong>Objectifs du projet :</strong></p>
+            <ul>
+                <li>Maîtriser la programmation procédurale en C (pointeurs, structures, gestion mémoire)</li>
+                <li>Implémenter des règles de jeu spécifiques : 3 pommes à la fois, croissance différée</li>
+                <li>Développer un système de sauvegarde / reprise de partie en fichier binaire</li>
+                <li>Programmer un mode Ordinateur avec intelligence artificielle (2 vitesses)</li>
+                <li>Appliquer une démarche de gestion de projet : Trello, diagramme de Gantt, Git</li>
+                <li>Présenter le projet via un PPT et l'intégrer dans le portfolio individuel</li>
+            </ul>
+
+            <p><strong>Mon rôle dans l'équipe :</strong></p>
+            <ul>
+                <li>Développement du <strong>moteur de jeu</strong> : boucle principale, déplacement du serpent, détection des collisions (murs et queue)</li>
+                <li>Implémentation de la <strong>logique des 3 pommes</strong> : génération aléatoire sans chevauchement, compteur de round, déclenchement de la croissance</li>
+                <li>Développement du <strong>système de sauvegarde / reprise</strong> via <code>fwrite</code> / <code>fread</code> sur un fichier binaire <code>snake_save.dat</code></li>
+                <li>Programmation de l'<strong>IA de l'ordinateur</strong> (algorithme greedy basé sur la distance de Manhattan) avec gestion des 2 vitesses</li>
+                <li>Responsable du <strong>suivi Git</strong> : création du dépôt, branches, commits conventionnels</li>
+                <li>Rédaction du <strong>bilan de compétences</strong> individuel et intégration dans le portfolio</li>
+            </ul>
+
+            <p><strong>Règles spécifiques imposées :</strong></p>
+            <ul>
+                <li>3 pommes générées simultanément à chaque round</li>
+                <li>Le serpent ne grandit qu'<strong>après avoir mangé les 3 pommes</strong> (+3 segments)</li>
+                <li>Fin de partie si collision avec une paroi ou avec sa propre queue</li>
+            </ul>
+
+            <p><strong>Difficulté principale :</strong> Implémenter la croissance différée — le serpent doit grandir progressivement (segment par segment) après avoir complété un round, sans saut brusque de longueur.</p>
+            <p><strong>Solution :</strong> Variable <code>pendingGrowth</code> incrémentée de 3 à chaque round complété et décrémentée de 1 à chaque tick de jeu.</p>
+
+            <p><strong>Technologies :</strong> C99, conio.h, windows.h, GCC / MinGW, Git, GitHub</p>
+            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B4 — Mode projet · B6 — Organisation du travail</p>`,
+        github: 'https://github.com/koscar4/Snake_C'
+    },
     snake: {
         title: 'Jeu Snake',
-        image: 'assets/img/projet-snake_game.jpg',
+        image: 'assets/img/projet-snake-js.svg',
         description: `
             <h3>Recréation du classique jeu Snake</h3>
             <p><strong>Contexte :</strong> Projet scolaire JavaScript pour pratiquer la programmation événementielle et le rendu graphique via l'API Canvas du navigateur.</p>
@@ -220,7 +262,13 @@ const projectsData = {
     },
     'auto-lourd': {
         title: 'Auto-école — Client Lourd (Java)',
-        image: 'assets/img/projet-client-lourd.jpg',
+        images: [
+            'assets/img/autoecole-lourd-login.png',
+            'assets/img/autoecole-client-lourd.png',
+            'assets/img/autoecole-lourd-moniteurs.png',
+            'assets/img/autoecole-lourd-stats.png'
+        ],
+        contain: true,
         description: `
             <h3>Application desktop de gestion d'auto-école</h3>
             <p><strong>Contexte :</strong> Projet scolaire de développement d'une application Java avec interface graphique Swing pour gérer complètement une auto-école.</p>
@@ -236,7 +284,22 @@ const projectsData = {
             <p><strong>Difficulté rencontrée :</strong> Gérer la synchronisation entre l'interface Swing (thread EDT) et les requêtes base de données JDBC sans bloquer l'UI.</p>
             <p><strong>Solution apportée :</strong> Utilisation de <code>SwingWorker</code> pour exécuter les opérations BDD en arrière-plan et mettre à jour l'UI de façon thread-safe.</p>
             <p><strong>Technologies :</strong> Java, Swing (GUI), JDBC, Base de données, Eclipse</p>
-            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B9 — Gestion des données · B4 — Mode projet</p>`,
+            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B9 — Gestion des données · B4 — Mode projet</p>
+            <div class="modal-teamwork">
+                <h4>👥 Travail en équipe</h4>
+                <p>Projet réalisé en groupe dans le cadre du BTS SIO.</p>
+                <p><strong>Mon rôle principal :</strong></p>
+                <ul>
+                    <li>Développement de l'interface graphique (Swing)</li>
+                    <li>Implémentation des connexions JDBC</li>
+                    <li>Gestion des interactions entre UI et base de données</li>
+                </ul>
+                <p><strong>Organisation :</strong></p>
+                <ul>
+                    <li>Répartition des tâches</li>
+                    <li>Travail collaboratif et intégration des modules</li>
+                </ul>
+            </div>`,
         demo: null,
         github: 'https://github.com/koscar4/Projet_autoecole_client_lourd'
     },
@@ -264,7 +327,24 @@ const projectsData = {
             <p><strong>Difficulté rencontrée :</strong> Organiser correctement l'architecture MVC en PHP pur sans framework, notamment la séparation entre la logique métier et l'affichage.</p>
             <p><strong>Solution apportée :</strong> Mise en place d'un routeur simple basé sur le paramètre GET <code>page</code> avec inclusion des contrôleurs et vues correspondants.</p>
             <p><strong>Technologies :</strong> HTML5/CSS3, PHP, MySQL, PDO, Architecture MVC, XAMPP</p>
-            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B9 — Gestion des données · B8 — Maintenance &amp; évolution</p>`,
+            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B9 — Gestion des données · B8 — Maintenance &amp; évolution</p>
+            <div class="modal-teamwork">
+                <h4>👥 Travail en équipe</h4>
+                <p>Projet réalisé en groupe dans le cadre du BTS SIO.</p>
+                <p><strong>Mon rôle principal :</strong></p>
+                <ul>
+                    <li>Conception et mise en place de l'architecture MVC</li>
+                    <li>Développement du back-end (PHP)</li>
+                    <li>Gestion des accès aux données (PDO, requêtes SQL)</li>
+                    <li>Mise en place du système d'authentification (sessions)</li>
+                </ul>
+                <p><strong>Travail en collaboration :</strong></p>
+                <ul>
+                    <li>Répartition des tâches via Trello</li>
+                    <li>Suivi de l'avancement du projet</li>
+                    <li>Intégration des différentes parties développées par l'équipe</li>
+                </ul>
+            </div>`,
         demo: 'http://localhost/projet_autoecole/',
         github: 'https://github.com/koscar4/Client_leger_autoecole'
     },
@@ -476,7 +556,7 @@ function openModal(projectKey) {
     if (imgs.length > 1) {
         const dots = imgs.map((_, i) => `<button class="carousel-dot${i===0?' active':''}" data-idx="${i}" aria-label="Image ${i+1}"></button>`).join('');
         carouselHTML = `
-        <div class="modal-carousel" data-current="0">
+        <div class="modal-carousel${data.contain ? ' carousel-contain' : ''}" data-current="0">
             <div class="carousel-track" style="display:flex;transition:transform .35s ease;">
                 ${imgs.map(src => `<img class="carousel-slide" src="${src}" alt="${data.title}" loading="lazy">`).join('')}
             </div>

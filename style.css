@@ -655,6 +655,7 @@ section { padding: 5rem 1.5rem; }
 .modal-carousel { position: relative; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.2rem; background: var(--surface); }
 .carousel-track { display: flex; }
 .carousel-slide { min-width: 100%; width: 100%; max-height: 220px; object-fit: cover; flex-shrink: 0; }
+.carousel-contain .carousel-slide { object-fit: contain; background: var(--surface); }
 .carousel-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
   background: rgba(0,0,0,.5); color: #fff; border: none; cursor: pointer;
@@ -667,6 +668,16 @@ section { padding: 5rem 1.5rem; }
 .carousel-dots { display: flex; justify-content: center; gap: .4rem; padding: .5rem; }
 .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,.35); transition: background var(--t), transform var(--t); }
 .carousel-dot.active { background: var(--primary); transform: scale(1.3); }
+.modal-teamwork {
+  margin-top: 1.4rem; padding: 1.1rem 1.3rem;
+  background: var(--surface); border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+}
+.modal-teamwork h4 { margin: 0 0 .6rem; font-size: 1rem; color: var(--primary); }
+.modal-teamwork p { margin: .4rem 0; }
+.modal-teamwork ul { margin: .3rem 0 .6rem 1.2rem; }
+.modal-teamwork li { margin-bottom: .25rem; font-size: .93rem; }
+
 .modal-actions { display: flex; gap: .8rem; margin-top: 1.5rem; flex-wrap: wrap; }
 .modal-actions .btn-secondary { background: var(--text-100) !important; color: #fff !important; border-color: var(--text-100) !important; }
 .modal-actions .btn-secondary:hover { background: #000 !important; color: #fff !important; border-color: #000 !important; }

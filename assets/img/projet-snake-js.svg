@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">
+  <defs>
+    <linearGradient id="bgjs" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="jsGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7df1e"/>
+      <stop offset="100%" stop-color="#e6c900"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="480" height="260" fill="url(#bgjs)" rx="10"/>
+
+  <!-- Canvas zone (grille de jeu) -->
+  <rect x="20" y="20" width="260" height="220" fill="#111" rx="6" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Grille légère -->
+  <line x1="20" y1="60" x2="280" y2="60" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="20" y1="100" x2="280" y2="100" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="20" y1="140" x2="280" y2="140" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="20" y1="180" x2="280" y2="180" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="60" y1="20" x2="60" y2="240" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="100" y1="20" x2="100" y2="240" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="140" y1="20" x2="140" y2="240" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="180" y1="20" x2="180" y2="240" stroke="#1a1a1a" stroke-width="0.5"/>
+  <line x1="220" y1="20" x2="220" y2="240" stroke="#1a1a1a" stroke-width="0.5"/>
+
+  <!-- Pomme (cercle rouge) -->
+  <circle cx="200" cy="80" r="12" fill="#e74c3c"/>
+  <line x1="200" y1="68" x2="204" y2="62" stroke="#27ae60" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Corps du serpent (carrés verts) -->
+  <rect x="25" y="155" width="18" height="18" fill="#1a5c2a" rx="3"/>
+  <rect x="45" y="155" width="18" height="18" fill="#1e6b30" rx="3"/>
+  <rect x="65" y="155" width="18" height="18" fill="#22773a" rx="3"/>
+  <rect x="85" y="155" width="18" height="18" fill="#268040" rx="3"/>
+  <rect x="85" y="135" width="18" height="18" fill="#2a8c48" rx="3"/>
+  <rect x="85" y="115" width="18" height="18" fill="#2e9950" rx="3"/>
+  <rect x="105" y="115" width="18" height="18" fill="#32a558" rx="3"/>
+  <rect x="125" y="115" width="18" height="18" fill="#36b060" rx="3"/>
+  <rect x="145" y="115" width="18" height="18" fill="#3dbe6a" rx="3"/>
+
+  <!-- Tête du serpent -->
+  <rect x="165" y="115" width="20" height="20" fill="#2ecc71" rx="4"/>
+  <!-- Yeux -->
+  <circle cx="170" cy="121" r="2.5" fill="white"/>
+  <circle cx="181" cy="121" r="2.5" fill="white"/>
+  <circle cx="171" cy="122" r="1.2" fill="#111"/>
+  <circle cx="182" cy="122" r="1.2" fill="#111"/>
+  <!-- Langue -->
+  <line x1="175" y1="135" x2="173" y2="140" stroke="#e74c3c" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="175" y1="135" x2="177" y2="140" stroke="#e74c3c" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Score bar -->
+  <rect x="20" y="228" width="260" height="14" fill="#0d0d0d" rx="3"/>
+  <text x="30" y="239" font-family="Arial, sans-serif" font-size="9" fill="#888">SCORE: 120</text>
+  <text x="170" y="239" font-family="Arial, sans-serif" font-size="9" fill="#2ecc71">▶ EN JEU</text>
+
+  <!-- Panel droit : logo JS + infos -->
+  <!-- Logo JavaScript -->
+  <rect x="295" y="25" width="70" height="70" fill="url(#jsGrad)" rx="8"/>
+  <text x="303" y="82" font-family="Arial Black, sans-serif" font-size="36" fill="#222" font-weight="900">JS</text>
+
+  <!-- Titre -->
+  <text x="295" y="120" font-family="Arial, sans-serif" font-size="16" fill="white" font-weight="bold">Snake</text>
+  <text x="295" y="138" font-family="Arial, sans-serif" font-size="11" fill="#aaa">JavaScript · Canvas API</text>
+
+  <!-- Séparateur -->
+  <line x1="295" y1="148" x2="460" y2="148" stroke="#333" stroke-width="1"/>
+
+  <!-- Features -->
+  <text x="295" y="165" font-family="Arial, sans-serif" font-size="9.5" fill="#2ecc71">✓</text>
+  <text x="308" y="165" font-family="Arial, sans-serif" font-size="9.5" fill="#ccc">Boucle de jeu Canvas</text>
+
+  <text x="295" y="180" font-family="Arial, sans-serif" font-size="9.5" fill="#2ecc71">✓</text>
+  <text x="308" y="180" font-family="Arial, sans-serif" font-size="9.5" fill="#ccc">requestAnimationFrame</text>
+
+  <text x="295" y="195" font-family="Arial, sans-serif" font-size="9.5" fill="#2ecc71">✓</text>
+  <text x="308" y="195" font-family="Arial, sans-serif" font-size="9.5" fill="#ccc">Détection collisions</text>
+
+  <text x="295" y="210" font-family="Arial, sans-serif" font-size="9.5" fill="#2ecc71">✓</text>
+  <text x="308" y="210" font-family="Arial, sans-serif" font-size="9.5" fill="#ccc">Pause / Score</text>
+
+  <!-- Badges techno -->
+  <rect x="295" y="222" width="46" height="16" fill="#f7df1e" rx="3"/>
+  <text x="318" y="233" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" fill="#222" font-weight="bold">JavaScript</text>
+
+  <rect x="345" y="222" width="36" height="16" fill="#e34c26" rx="3"/>
+  <text x="363" y="233" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" fill="white" font-weight="bold">HTML5</text>
+
+  <rect x="385" y="222" width="30" height="16" fill="#264de4" rx="3"/>
+  <text x="400" y="233" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" fill="white" font-weight="bold">CSS3</text>
+</svg>

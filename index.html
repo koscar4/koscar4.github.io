@@ -69,7 +69,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-num">9+</span>
+                    <span class="stat-num">10+</span>
                     <span class="stat-label">Projets réalisés</span>
                 </div>
                 <div class="stat-item">
@@ -174,8 +174,8 @@
                     <span class="skill-level skill-level--avance">Avancé</span>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon"><img src="assets/img/skills/css.svg" alt="CSS3" loading="lazy"><span class="icon-fallback">C</span></div>
-                    <h4>CSS3</h4>
+                    <div class="skill-icon"><img src="assets/img/skills/css.svg" alt="CSS" loading="lazy"><span class="icon-fallback">C</span></div>
+                    <h4>CSS</h4>
                     <p>Conception d'interfaces modernes (dark mode, responsive design, animations) et optimisation de l'expérience utilisateur sur différents supports.</p>
                     <span class="skill-level skill-level--avance">Avancé</span>
                 </div>
@@ -223,9 +223,9 @@
                     <span class="skill-level skill-level--intermediaire">Intermédiaire</span>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-icon"><img src="assets/img/skills/cpp.svg" alt="C++" loading="lazy"><span class="icon-fallback">C++</span></div>
-                    <h4>C++ / Java</h4>
-                    <p>Développement orienté objet : jeux en C++ et application client lourd en Java (Swing, JDBC) avec connexion à une base MySQL.</p>
+                    <div class="skill-icon"><img src="assets/img/skills/cpp.svg" alt="C / C++" loading="lazy"><span class="icon-fallback">C</span></div>
+                    <h4>C / Java</h4>
+                    <p>Programmation procédurale en C (jeu Snake : boucle de jeu, IA, sauvegarde binaire) ; application client lourd en Java (Swing, JDBC, MySQL).</p>
                     <span class="skill-level skill-level--debutant">Débutant</span>
                 </div>
             </div>
@@ -326,7 +326,36 @@
 
             <article class="project-card reveal" data-category="scolaire">
                 <div class="project-image">
-                    <img src="assets/img/projet-snake_game.jpg" alt="Jeu Snake — capture de gameplay" loading="lazy">
+                    <img src="assets/img/projet-snake-c.svg" alt="Snake en C — capture du terminal" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Snake — Langage C</h3>
+                    <p class="project-description">Jeu du serpent en C pur (conio.h) : 3 pommes générées à la fois, croissance après avoir toutes mangées, sauvegarde binaire de partie, mode Ordinateur avec IA greedy et deux vitesses.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">conio.h</span>
+                        <span class="tech-badge">Windows API</span>
+                        <span class="tech-badge">IA greedy</span>
+                        <span class="tech-badge">Git</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation procédurale en C, gestion de la mémoire, algorithme IA, sérialisation binaire (save/load), gestion de projet (Trello, Gantt)</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B6 — Organisation du travail</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="snake-c">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snake_C" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-snake-js.svg" alt="Jeu Snake JavaScript — Canvas API" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-badge">Projet scolaire</span>
@@ -513,6 +542,7 @@
                     </div>
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="glpi">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="assets/documentation-glpi.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation PDF</a>
                     </div>
                 </div>
             </article>
