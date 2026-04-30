@@ -244,6 +244,7 @@ const projectsData = {
         title: 'Auto-école — Client Léger (PHP/MySQL)',
         images: [
             'assets/img/autoecole-client-leger.png',
+            'assets/img/autoecole-mcd.png',
             'assets/img/autoecole-inscription.png',
             'assets/img/autoecole-lecons.png',
             'assets/img/autoecole-candidats.png'
