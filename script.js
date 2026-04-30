@@ -242,7 +242,12 @@ const projectsData = {
     },
     'auto-leger': {
         title: 'Auto-école — Client Léger (PHP/MySQL)',
-        image: 'assets/img/autoecole-client-leger.png',
+        images: [
+            'assets/img/autoecole-client-leger.png',
+            'assets/img/autoecole-inscription.png',
+            'assets/img/autoecole-lecons.png',
+            'assets/img/autoecole-candidats.png'
+        ],
         description: `
             <h3>Application web de gestion d'auto-école</h3>
             <p><strong>Contexte :</strong> Version web de la gestion d'auto-école, accessible via navigateur, développée en PHP/MySQL avec architecture MVC sous XAMPP.</p>
@@ -463,10 +468,42 @@ function openModal(projectKey) {
     if (!data) return;
 
     modalTitle.textContent = data.title;
-    modalBody.innerHTML = `
-        ${data.image ? `<img class="modal-project-image" src="${data.image}" alt="${data.title}" loading="lazy">` : ''}
-        ${data.description}
-    `;
+
+    // Carousel multi-images ou image unique
+    const imgs = data.images || (data.image ? [data.image] : []);
+    let carouselHTML = '';
+    if (imgs.length > 1) {
+        const dots = imgs.map((_, i) => `<button class="carousel-dot${i===0?' active':''}" data-idx="${i}" aria-label="Image ${i+1}"></button>`).join('');
+        carouselHTML = `
+        <div class="modal-carousel" data-current="0">
+            <div class="carousel-track" style="display:flex;transition:transform .35s ease;">
+                ${imgs.map(src => `<img class="carousel-slide" src="${src}" alt="${data.title}" loading="lazy">`).join('')}
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+            <div class="carousel-dots">${dots}</div>
+        </div>`;
+    } else if (imgs.length === 1) {
+        carouselHTML = `<img class="modal-project-image" src="${imgs[0]}" alt="${data.title}" loading="lazy">`;
+    }
+
+    modalBody.innerHTML = carouselHTML + data.description;
+
+    // Init carousel navigation
+    const carousel = modalBody.querySelector('.modal-carousel');
+    if (carousel) {
+        const track = carousel.querySelector('.carousel-track');
+        const allDots = carousel.querySelectorAll('.carousel-dot');
+        let cur = 0;
+        const go = (n) => {
+            cur = (n + imgs.length) % imgs.length;
+            track.style.transform = `translateX(-${cur * 100}%)`;
+            allDots.forEach((d, i) => d.classList.toggle('active', i === cur));
+        };
+        carousel.querySelector('.carousel-prev').addEventListener('click', () => go(cur - 1));
+        carousel.querySelector('.carousel-next').addEventListener('click', () => go(cur + 1));
+        allDots.forEach(d => d.addEventListener('click', () => go(+d.dataset.idx)));
+    }
 
     if (data.demo) {
         projectDemoBtn.href = data.demo;
