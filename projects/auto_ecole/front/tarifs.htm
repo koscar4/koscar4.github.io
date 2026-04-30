@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castellane Auto — Tarifs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --red:   #C0392B; --red2: #96281B;
+            --gold:  #D4A017;
+            --dark:  #0d0d0d; --dark2: #1a1a1a;
+            --white: #fff;
+            --gray:  #F7F6F2; --gray2: #EFEFED;
+            --text:  #1a1a1a; --muted: #888;
+            --border:#e5e5e3;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--red); }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 200;
+            background: var(--dark);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 4rem; height: 72px;
+            border-bottom: 1px solid rgba(192,57,43,.4);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem;
+            color: var(--white); letter-spacing: .5px; text-decoration: none;
+            display: flex; align-items: center; gap: .6rem;
+        }
+        .logo-icon { width: 34px; height: 34px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,.65); text-decoration: none; font-size: .85rem; font-weight: 500; text-transform: uppercase; letter-spacing: .3px; transition: color .2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: .4rem 1.3rem; border-radius: 4px; }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            background: var(--dark);
+            padding: 5rem 4rem 4rem;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .page-header::before {
+            content: ''; position: absolute;
+            width: 600px; height: 600px; border-radius: 50%;
+            border: 1px solid rgba(212,160,23,.07);
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+        .page-header::after {
+            content: ''; position: absolute;
+            width: 900px; height: 900px; border-radius: 50%;
+            border: 1px solid rgba(212,160,23,.04);
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+        .header-tag {
+            display: inline-flex; align-items: center; gap: .4rem;
+            color: var(--gold); font-size: .75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 1.2rem;
+            position: relative; z-index: 1;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white); line-height: 1.15; margin-bottom: 1rem;
+            position: relative; z-index: 1;
+        }
+        .page-header h1 em { font-style: italic; color: var(--gold); }
+        .page-header p { color: rgba(255,255,255,.5); font-size: 1.05rem; max-width: 520px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1; }
+
+        /* ── TOGGLE ── */
+        .toggle-wrapper {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.2rem; padding: 3rem 0 1rem; background: var(--white);
+        }
+        .toggle-label { font-size: .95rem; font-weight: 600; color: var(--muted); transition: color .2s; cursor: pointer; }
+        .toggle-label.active { color: var(--text); }
+        .toggle-switch {
+            width: 52px; height: 28px; background: var(--red); border-radius: 100px;
+            position: relative; cursor: pointer; transition: background .3s; flex-shrink: 0;
+        }
+        .toggle-switch.auto { background: var(--gold); }
+        .toggle-knob {
+            position: absolute; top: 3px; left: 3px;
+            width: 22px; height: 22px; border-radius: 50%; background: var(--white);
+            transition: transform .3s; box-shadow: 0 1px 4px rgba(0,0,0,.25);
+        }
+        .toggle-switch.auto .toggle-knob { transform: translateX(24px); }
+        .toggle-badge {
+            background: rgba(212,160,23,.15); color: #96281B; font-size: .7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px; padding: .25rem .7rem; border-radius: 100px;
+        }
+
+        /* ── FORMULES GRID ── */
+        .plans-section {
+            padding: 1rem 4rem 5rem; background: var(--white);
+            max-width: 1280px; margin: 0 auto;
+        }
+        .plans-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .plan-card {
+            border: 1.5px solid var(--border); border-radius: 16px;
+            padding: 2.2rem 2rem; position: relative; overflow: hidden;
+            transition: border-color .3s, box-shadow .3s, transform .3s;
+            background: var(--white);
+        }
+        .plan-card:hover { border-color: #ccc; box-shadow: 0 12px 40px rgba(0,0,0,.08); transform: translateY(-4px); }
+        .plan-card.featured {
+            border-color: var(--red); border-width: 2px;
+            box-shadow: 0 8px 32px rgba(192,57,43,.12);
+        }
+        .plan-card.featured:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(192,57,43,.18); }
+        .plan-ribbon {
+            position: absolute; top: 0; right: 0;
+            background: var(--red); color: var(--white);
+            font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            padding: .35rem 1.1rem; border-radius: 0 14px 0 8px;
+        }
+        .plan-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+        .plan-type { font-size: .72rem; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 2px; margin-bottom: .5rem; }
+        .plan-card h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+        .plan-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.6rem; }
+        .plan-price {
+            display: flex; align-items: flex-end; gap: .3rem;
+            margin-bottom: 1.8rem; padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .price-num { font-size: 3rem; font-weight: 800; color: var(--text); line-height: 1; }
+        .price-num.striked { font-size: 1.4rem; color: #ccc; text-decoration: line-through; font-weight: 400; }
+        .price-unit { font-size: .85rem; color: var(--muted); padding-bottom: .4rem; }
+        .price-eco {
+            display: inline-flex; align-items: center;
+            background: rgba(212,160,23,.12); color: #96281B;
+            font-size: .7rem; font-weight: 700; padding: .2rem .6rem; border-radius: 4px;
+            margin-left: .5rem;
+        }
+        .plan-features { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+        .plan-features li { display: flex; align-items: flex-start; gap: .7rem; font-size: .9rem; color: #444; }
+        .plan-features li::before {
+            content: '✓'; width: 18px; height: 18px; border-radius: 50%;
+            background: rgba(192,57,43,.1); color: var(--red);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .65rem; font-weight: 800; flex-shrink: 0; margin-top: 1px;
+        }
+        .plan-features li.off::before { content: '–'; background: #f5f5f5; color: #bbb; }
+        .plan-features li.off { color: #bbb; }
+        .btn-plan {
+            display: block; text-align: center; text-decoration: none;
+            padding: .9rem; border-radius: 8px; font-weight: 700; font-size: .95rem;
+            transition: all .25s;
+        }
+        .btn-plan-primary { background: var(--red); color: var(--white); box-shadow: 0 4px 16px rgba(192,57,43,.3); }
+        .btn-plan-primary:hover { background: var(--red2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,.4); }
+        .btn-plan-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+        .btn-plan-outline:hover { border-color: var(--red); color: var(--red); background: rgba(192,57,43,.04); }
+
+        /* ── AUTO section (hidden by default) ── */
+        .plans-auto { display: none; }
+        .plans-auto.visible { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .plans-manual { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .plans-manual.hidden { display: none; }
+
+        /* ── BADGE CPF ── */
+        .cpf-banner {
+            background: linear-gradient(135deg, #0d0d0d 0%, #C0392B 100%);
+            margin: 0 4rem; border-radius: 16px; padding: 2.5rem 3rem;
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+            max-width: 1280px; margin: 0 auto; margin-bottom: 5rem;
+        }
+        .cpf-left { display: flex; align-items: center; gap: 1.2rem; }
+        .cpf-icon { font-size: 2.5rem; flex-shrink: 0; }
+        .cpf-text h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
+        .cpf-text p { font-size: .88rem; color: rgba(255,255,255,.65); line-height: 1.5; }
+        .btn-cpf {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3);
+            padding: .7rem 1.6rem; border-radius: 8px; text-decoration: none;
+            font-weight: 600; font-size: .9rem; white-space: nowrap;
+            transition: background .2s;
+        }
+        .btn-cpf:hover { background: rgba(255,255,255,.25); }
+
+        /* ── À LA CARTE ── */
+        .acarte-section {
+            background: var(--gray); padding: 5rem 4rem;
+        }
+        .acarte-inner { max-width: 1280px; margin: 0 auto; }
+        .acarte-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-tag { display: inline-flex; align-items: center; gap: .4rem; color: var(--red); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: .7rem; }
+        .section-tag::before { content: ''; width: 18px; height: 2px; background: var(--red); }
+        .section-title-lg { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--text); line-height: 1.2; }
+        .section-title-lg em { font-style: italic; color: var(--red); }
+        .section-sub { color: var(--muted); font-size: .95rem; margin-top: .7rem; line-height: 1.7; }
+        .acarte-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .acarte-card {
+            background: var(--white); border-radius: 12px; padding: 1.6rem;
+            border: 1px solid var(--border);
+            transition: box-shadow .25s, transform .25s;
+        }
+        .acarte-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.08); transform: translateY(-3px); }
+        .acarte-emoji { font-size: 1.8rem; margin-bottom: 1rem; }
+        .acarte-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; }
+        .acarte-card p { font-size: .82rem; color: var(--muted); line-height: 1.5; margin-bottom: 1rem; }
+        .acarte-price { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+        .acarte-price span { font-size: .8rem; font-weight: 400; color: var(--muted); }
+
+        /* ── CODE DE LA ROUTE ── */
+        .code-section { padding: 5rem 4rem; background: var(--white); }
+        .code-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .code-img { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.1); }
+        .code-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+        .code-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0; }
+        .code-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+        }
+        .code-item:last-child { border-bottom: none; }
+        .code-item-left { display: flex; align-items: center; gap: .9rem; }
+        .code-item-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(192,57,43,.08); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .code-item-name { font-size: .93rem; font-weight: 600; }
+        .code-item-detail { font-size: .8rem; color: var(--muted); margin-top: .1rem; }
+        .code-item-price { font-size: 1.05rem; font-weight: 800; color: var(--red); white-space: nowrap; }
+
+        /* ── AAC ── */
+        .aac-section { background: var(--dark); padding: 5rem 4rem; }
+        .aac-inner { max-width: 1280px; margin: 0 auto; }
+        .aac-header { text-align: center; margin-bottom: 3.5rem; }
+        .aac-header .section-title-lg { color: var(--white); }
+        .aac-header .section-sub { color: rgba(255,255,255,.5); }
+        .aac-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .aac-card {
+            background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+            border-radius: 14px; padding: 1.8rem;
+            transition: background .3s, border-color .3s;
+        }
+        .aac-card:hover { background: rgba(255,255,255,.08); border-color: rgba(212,160,23,.3); }
+        .aac-card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .aac-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); }
+        .aac-card-detail { font-size: .83rem; color: rgba(255,255,255,.45); line-height: 1.6; margin-bottom: 1.2rem; }
+        .aac-card-price { font-size: 1.8rem; font-weight: 800; color: var(--white); }
+        .aac-card-price span { font-size: .8rem; font-weight: 400; color: rgba(255,255,255,.4); }
+        .aac-num { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(255,255,255,.06); }
+
+        /* ── FAQ ── */
+        .faq-section { padding: 5rem 4rem; background: var(--gray); }
+        .faq-inner { max-width: 780px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 3rem; }
+        .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+        .faq-q {
+            width: 100%; text-align: left; background: transparent; border: none;
+            padding: 1.3rem 0; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text);
+        }
+        .faq-q:hover { color: var(--red); }
+        .faq-icon { font-size: 1.2rem; color: var(--red); transition: transform .3s; flex-shrink: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-a {
+            max-height: 0; overflow: hidden;
+            transition: max-height .4s ease, padding .3s;
+            font-size: .92rem; color: #555; line-height: 1.8;
+        }
+        .faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.3rem; }
+
+        /* ── CTA BOTTOM ── */
+        .cta-section {
+            padding: 6rem 4rem; text-align: center;
+            background: linear-gradient(135deg, var(--red2) 0%, var(--red) 60%, #d44 100%);
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before, .cta-section::after { content: ''; position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); }
+        .cta-section::before { width: 400px; height: 400px; top: -200px; right: -100px; }
+        .cta-section::after  { width: 300px; height: 300px; bottom: -150px; left: -50px; }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--white); margin-bottom: .8rem; }
+        .cta-section p { color: rgba(255,255,255,.72); font-size: 1rem; margin-bottom: 2.2rem; }
+        .btn-cta-white { display: inline-flex; align-items: center; gap: .5rem; background: var(--white); color: var(--red); padding: .95rem 2.4rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; transition: all .25s; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+        .btn-cta-white:hover { background: var(--dark); color: var(--white); transform: translateY(-2px); }
+
+        /* ── NOTE ── */
+        .note-band { background: #F7F6F2; border-top: 1px solid rgba(212,160,23,.3); padding: 1.2rem 4rem; }
+        .note-band p { max-width: 1280px; margin: 0 auto; font-size: .85rem; color: #555; }
+        .note-band strong { font-weight: 700; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--dark); padding: 3rem 4rem 2rem; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+        .footer-brand p { color: rgba(255,255,255,.35); font-size: .87rem; margin-top: 1rem; line-height: 1.8; max-width: 240px; }
+        .footer-col h4 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.1rem; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+        .footer-col ul li a { color: rgba(255,255,255,.38); text-decoration: none; font-size: .87rem; transition: color .2s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-bottom { padding-top: 1.8rem; display: flex; justify-content: space-between; align-items: center; }
+        .footer-copy { font-size: .78rem; color: rgba(255,255,255,.2); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: .78rem; color: rgba(255,255,255,.2); text-decoration: none; transition: color .2s; }
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            nav { padding: 0 2rem; }
+            .page-header { padding: 4rem 2rem 3rem; }
+            .plans-section { padding: 1rem 2rem 4rem; }
+            .cpf-banner { margin: 0 2rem 4rem; padding: 2rem; flex-direction: column; text-align: center; }
+            .acarte-section, .code-section, .aac-section, .faq-section, .cta-section, .note-band { padding-left: 2rem; padding-right: 2rem; }
+            .acarte-grid { grid-template-columns: 1fr 1fr; }
+            .code-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .aac-cards { grid-template-columns: 1fr 1fr; }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .page-header { padding: 4rem 1.5rem 3rem; }
+            .plans-section { padding: 1rem 1.5rem 4rem; }
+            .plans-manual, .plans-auto.visible { grid-template-columns: 1fr; }
+            .cpf-banner { margin: 0 1.5rem 3rem; }
+            .acarte-section, .code-section, .aac-section, .faq-section, .cta-section, .note-band { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .acarte-grid { grid-template-columns: 1fr 1fr; }
+            .aac-cards { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+        @media (max-width: 500px) {
+            .acarte-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+    <a href="accueil.htm" class="logo">
+        <div class="logo-icon">🚗</div>
+        Castellane <span>&nbsp;Auto</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="accueil.htm">Accueil</a></li>
+        <li><a href="tarifs.htm" class="active">Tarifs</a></li>
+        <li><a href="photos.htm">Photos</a></li>
+        <li><a href="accueil.htm#contact">Contact</a></li>
+        <li><a href="login.php" class="nav-cta">Mon espace</a></li>
+    </ul>
+</nav>
+
+<!-- ══ PAGE HEADER ══ -->
+<div class="page-header">
+    <div class="header-tag">Tarifs transparents &amp; sans surprise</div>
+    <h1>Des formules pour <em>chaque projet</em></h1>
+    <p>Permis B manuel ou automatique, code de la route, conduite accompagnée — choisissez ce qui vous correspond.</p>
+</div>
+
+<!-- ══ TOGGLE BOÎTE ══ -->
+<div class="toggle-wrapper">
+    <span class="toggle-label active" id="lbl-manual" onclick="setMode('manual')">Boîte manuelle</span>
+    <div class="toggle-switch" id="toggle" onclick="switchMode()">
+        <div class="toggle-knob"></div>
+    </div>
+    <span class="toggle-label" id="lbl-auto" onclick="setMode('auto')">Boîte automatique</span>
+    <span class="toggle-badge">Économique</span>
+</div>
+
+<!-- ══ FORMULES ══ -->
+<div class="plans-section" style="padding-top:2rem;">
+
+    <!-- ─ MANUEL ─ -->
+    <div class="plans-manual" id="plans-manual">
+
+        <div class="plan-card">
+            <div class="plan-icon">🕐</div>
+            <div class="plan-type">Formule 1</div>
+            <h2>Leçon à la carte</h2>
+            <p class="plan-desc">Flexible, sans engagement. Idéal pour compléter une formation ou reprendre la route.</p>
+            <div class="plan-price">
+                <span class="price-num">35</span>
+                <span class="price-unit">€ / heure</span>
+            </div>
+            <ul class="plan-features">
+                <li>Aucun engagement de durée</li>
+                <li>Moniteur attitré à chaque séance</li>
+                <li>Véhicule double commande récent</li>
+                <li>Bilan de conduite inclus</li>
+                <li class="off">Inscription code incluse</li>
+                <li class="off">Frais d'examen inclus</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-outline">Commencer →</a>
+        </div>
+
+        <div class="plan-card featured">
+            <div class="plan-ribbon">⭐ Recommandé</div>
+            <div class="plan-icon">🎯</div>
+            <div class="plan-type">Formule 2</div>
+            <h2>Pack 10 heures</h2>
+            <p class="plan-desc">Le meilleur rapport qualité-prix pour une progression régulière et rapide.</p>
+            <div class="plan-price">
+                <span class="price-num">320</span>
+                <span class="price-unit">€ / 10 h</span>
+                <span class="price-eco">-9%</span>
+            </div>
+            <ul class="plan-features">
+                <li>Économisez 30 € vs à l'heure</li>
+                <li>Valable 6 mois</li>
+                <li>Moniteur attitré garanti</li>
+                <li>Bilan intermédiaire offert</li>
+                <li>Inscription code de la route offerte</li>
+                <li class="off">Frais d'examen inclus</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-primary">S'inscrire →</a>
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-icon">🏆</div>
+            <div class="plan-type">Formule 3</div>
+            <h2>Formation complète</h2>
+            <p class="plan-desc">Le forfait tout-inclus pour obtenir votre permis sereinement, de A à Z.</p>
+            <div class="plan-price">
+                <span class="price-num">1 200</span>
+                <span class="price-unit">€ tout inclus</span>
+            </div>
+            <ul class="plan-features">
+                <li>Code + conduite (30 h min.)</li>
+                <li>Frais d'examen code inclus</li>
+                <li>Frais d'examen permis inclus</li>
+                <li>Accompagnement le jour J</li>
+                <li>1 heure de rattrapage offerte</li>
+                <li>Suivi personnalisé garanti</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-outline">Choisir →</a>
+        </div>
+
+    </div>
+
+    <!-- ─ AUTOMATIQUE (masqué par défaut) ─ -->
+    <div class="plans-auto" id="plans-auto">
+
+        <div class="plan-card">
+            <div class="plan-icon">⚡</div>
+            <div class="plan-type">Auto — Formule 1</div>
+            <h2>Leçon à la carte</h2>
+            <p class="plan-desc">Boîte automatique, sans engagement. Idéal pour se concentrer sur la route.</p>
+            <div class="plan-price">
+                <span class="price-num">37</span>
+                <span class="price-unit">€ / heure</span>
+            </div>
+            <ul class="plan-features">
+                <li>Aucun engagement</li>
+                <li>Moniteur attitré</li>
+                <li>Véhicule automatique double commande</li>
+                <li>Bilan de conduite inclus</li>
+                <li class="off">Inscription code incluse</li>
+                <li class="off">Frais d'examen inclus</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-outline">Commencer →</a>
+        </div>
+
+        <div class="plan-card featured">
+            <div class="plan-ribbon">⭐ Recommandé</div>
+            <div class="plan-icon">🎯</div>
+            <div class="plan-type">Auto — Formule 2</div>
+            <h2>Pack 10 heures</h2>
+            <p class="plan-desc">Progression rapide en boîte automatique. Économique et flexible.</p>
+            <div class="plan-price">
+                <span class="price-num">340</span>
+                <span class="price-unit">€ / 10 h</span>
+                <span class="price-eco">-8%</span>
+            </div>
+            <ul class="plan-features">
+                <li>Économisez 30 € vs à l'heure</li>
+                <li>Valable 6 mois</li>
+                <li>Moniteur attitré garanti</li>
+                <li>Bilan intermédiaire offert</li>
+                <li>Inscription code offerte</li>
+                <li class="off">Frais d'examen inclus</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-primary">S'inscrire →</a>
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-icon">🏆</div>
+            <div class="plan-type">Auto — Formule 3</div>
+            <h2>Formation complète</h2>
+            <p class="plan-desc">Permis B automatique de A à Z, tout inclus, sans mauvaises surprises.</p>
+            <div class="plan-price">
+                <span class="price-num">1 290</span>
+                <span class="price-unit">€ tout inclus</span>
+            </div>
+            <ul class="plan-features">
+                <li>Code + conduite auto (30 h min.)</li>
+                <li>Frais d'examen code inclus</li>
+                <li>Frais d'examen permis inclus</li>
+                <li>Accompagnement le jour J</li>
+                <li>1 heure de rattrapage offerte</li>
+                <li>Suivi personnalisé garanti</li>
+            </ul>
+            <a href="inscription.php" class="btn-plan btn-plan-outline">Choisir →</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ══ BANDEAU CPF ══ -->
+<div style="padding: 0 4rem 5rem; max-width:1280px; margin:0 auto;">
+    <div class="cpf-banner">
+        <div class="cpf-left">
+            <div class="cpf-icon">💼</div>
+            <div class="cpf-text">
+                <h3>Financement CPF disponible</h3>
+                <p>Utilisez votre Compte Personnel de Formation pour financer tout ou partie de votre permis. Nous vous accompagnons dans les démarches.</p>
+            </div>
+        </div>
+        <a href="accueil.htm#contact" class="btn-cpf">En savoir plus →</a>
+    </div>
+</div>
+
+<!-- ══ À LA CARTE ══ -->
+<section class="acarte-section">
+    <div class="acarte-inner">
+        <div class="acarte-header">
+            <span class="section-tag">Services individuels</span>
+            <h2 class="section-title-lg">À la <em>carte</em></h2>
+            <p class="section-sub" style="max-width:500px;margin:.7rem auto 0;">Chaque prestation est disponible séparément si vous souhaitez compléter ou personnaliser votre parcours.</p>
+        </div>
+        <div class="acarte-grid">
+            <div class="acarte-card">
+                <div class="acarte-emoji">📋</div>
+                <h3>Évaluation de départ</h3>
+                <p>Bilan de compétences offert à l'inscription pour adapter votre programme.</p>
+                <div class="acarte-price">Offert</div>
+            </div>
+            <div class="acarte-card">
+                <div class="acarte-emoji">📖</div>
+                <h3>Inscription code</h3>
+                <p>Accès illimité à la salle de code pendant 1 an + plateforme en ligne 7j/7.</p>
+                <div class="acarte-price">30 € <span>/ an</span></div>
+            </div>
+            <div class="acarte-card">
+                <div class="acarte-emoji">🎓</div>
+                <h3>Frais examen code</h3>
+                <p>Présentation à l'épreuve théorique générale (ETG). Accompagné par votre moniteur.</p>
+                <div class="acarte-price">30 €</div>
+            </div>
+            <div class="acarte-card">
+                <div class="acarte-emoji">🚦</div>
+                <h3>Frais examen permis</h3>
+                <p>Accompagnement et frais administratifs pour le passage de l'épreuve pratique.</p>
+                <div class="acarte-price">80 €</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CODE DE LA ROUTE ══ -->
+<section class="code-section">
+    <div class="code-inner">
+        <div class="code-img">
+            <img src="images/code-room.jpg" alt="Salle de code de la route">
+        </div>
+        <div>
+            <span class="section-tag">Théorique</span>
+            <h2 class="section-title-lg">Le <em>code</em> de la route</h2>
+            <p class="section-sub">Salle équipée de postes informatiques et accès illimité à notre plateforme en ligne, disponible 24h/24 et 7j/7 sur tous vos appareils.</p>
+            <ul class="code-list">
+                <li class="code-item">
+                    <div class="code-item-left">
+                        <div class="code-item-icon">🖥️</div>
+                        <div>
+                            <div class="code-item-name">Inscription code</div>
+                            <div class="code-item-detail">Salle illimitée pendant 1 an + plateforme en ligne</div>
+                        </div>
+                    </div>
+                    <div class="code-item-price">30 €</div>
+                </li>
+                <li class="code-item">
+                    <div class="code-item-left">
+                        <div class="code-item-icon">📝</div>
+                        <div>
+                            <div class="code-item-name">Frais d'examen code</div>
+                            <div class="code-item-detail">Présentation à l'épreuve théorique générale</div>
+                        </div>
+                    </div>
+                    <div class="code-item-price">30 €</div>
+                </li>
+                <li class="code-item">
+                    <div class="code-item-left">
+                        <div class="code-item-icon">🚗</div>
+                        <div>
+                            <div class="code-item-name">Frais d'examen permis</div>
+                            <div class="code-item-detail">Accompagnement &amp; frais de passage pratique</div>
+                        </div>
+                    </div>
+                    <div class="code-item-price">80 €</div>
+                </li>
+                <li class="code-item">
+                    <div class="code-item-left">
+                        <div class="code-item-icon">🔁</div>
+                        <div>
+                            <div class="code-item-name">Représentation examen</div>
+                            <div class="code-item-detail">En cas d'échec — accompagnement inclus</div>
+                        </div>
+                    </div>
+                    <div class="code-item-price">80 €</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ══ AAC ══ -->
+<section class="aac-section">
+    <div class="aac-inner">
+        <div class="aac-header">
+            <span class="section-tag" style="color:var(--gold);justify-content:center;">Dès 15 ans</span>
+            <h2 class="section-title-lg" style="color:var(--white);">Conduite <em style="color:var(--gold);">accompagnée</em> (AAC)</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,.5);max-width:500px;margin:.7rem auto 0;">Commencez votre apprentissage dès 15 ans pour accumuler de l'expérience et aborder l'examen en toute confiance à 18 ans.</p>
+        </div>
+        <div class="aac-cards">
+            <div class="aac-card">
+                <div class="aac-card-head">
+                    <h3>Bilan initial obligatoire</h3>
+                    <span class="aac-num">01</span>
+                </div>
+                <p class="aac-card-detail">Évaluation de départ indispensable pour accéder à la conduite accompagnée — 2 heures avec votre moniteur.</p>
+                <div class="aac-card-price">70 € <span>/ bilan</span></div>
+            </div>
+            <div class="aac-card">
+                <div class="aac-card-head">
+                    <h3>Leçon de conduite AAC</h3>
+                    <span class="aac-num">02</span>
+                </div>
+                <p class="aac-card-detail">Chaque heure de conduite avec votre moniteur, sur véhicule double commande dédié à l'AAC.</p>
+                <div class="aac-card-price">35 € <span>/ heure</span></div>
+            </div>
+            <div class="aac-card">
+                <div class="aac-card-head">
+                    <h3>Rendez-vous pédagogique</h3>
+                    <span class="aac-num">03</span>
+                </div>
+                <p class="aac-card-detail">Bilan intermédiaire obligatoire à 3 000 km — 1 heure avec votre moniteur pour ajuster le programme.</p>
+                <div class="aac-card-price">35 € <span>/ séance</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section">
+    <div class="faq-inner">
+        <div class="faq-header">
+            <span class="section-tag" style="justify-content:center;">Questions fréquentes</span>
+            <h2 class="section-title-lg">Tout ce que vous <em>voulez savoir</em></h2>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Peut-on payer en plusieurs fois ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Oui, nous proposons le paiement en 2 ou 3 fois sans frais pour nos forfaits. Contactez-nous directement à l'accueil pour convenir des modalités adaptées à votre situation.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Les heures du forfait sont-elles remboursables ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Les heures achetées en forfait ne sont pas remboursables mais sont valables 6 mois. Elles peuvent être cédées à un membre de votre famille en cas d'impossibilité de les utiliser — sous conditions, nous consulter.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Que se passe-t-il si j'échoue à l'examen ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">En cas d'échec à l'épreuve pratique, nous analysons ensemble les points à améliorer et organisons les heures de rattrapage nécessaires. La représentation à l'examen est ensuite reproposée à 80 €. Dans notre Formation Complète, 1 heure de rattrapage est déjà incluse.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Mon CPF peut-il financer le permis ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Oui, si vous êtes salarié ou demandeur d'emploi, votre Compte Personnel de Formation (CPF) peut prendre en charge tout ou partie de votre permis de conduire. Nous vous accompagnons dans les démarches administratives.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Quelle est la différence entre permis B manuel et automatique ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Le permis B manuel vous autorise à conduire tous les véhicules. Le permis B automatique (ou permis BEA) vous limite aux véhicules à boîte automatique mais peut être obtenu plus rapidement. Il est idéal si vous ressentez des difficultés avec la boîte manuelle.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                Combien de temps dure une formation permis B ?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">En moyenne, nos élèves suivent entre 25 et 35 heures de conduite avant l'examen. Cela dépend de votre niveau de départ, de votre rythme d'apprentissage et de la fréquence des leçons. Un bilan initial gratuit permet d'estimer le nombre d'heures nécessaires.</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+    <h2>Prêt à démarrer ?</h2>
+    <p>Inscrivez-vous dès aujourd'hui et bénéficiez d'une évaluation de départ offerte.</p>
+    <a href="inscription.php" class="btn-cta-white">&#8594; S'inscrire maintenant</a>
+</section>
+
+<!-- ══ NOTE LÉGALE ══ -->
+<div class="note-band">
+    <p>💡 <strong>Bon à savoir :</strong> Tous nos tarifs sont TTC. Le passage à l'examen est accompagné par votre moniteur attitré. Possibilité de paiement en plusieurs fois sans frais. <a href="accueil.htm#contact" style="color:var(--red);font-weight:600;">Nous contacter</a> pour un devis personnalisé.</p>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="accueil.htm" class="logo">
+                <div class="logo-icon">🚗</div>
+                Castellane <span>&nbsp;Auto</span>
+            </a>
+            <p>Votre auto-école de confiance à Toulon depuis 1998.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="accueil.htm">Accueil</a></li>
+                <li><a href="tarifs.htm">Nos tarifs</a></li>
+                <li><a href="photos.htm">Galerie</a></li>
+                <li><a href="accueil.htm#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Formations</h4>
+            <ul>
+                <li><a href="#">Permis B Manuelle</a></li>
+                <li><a href="#">Permis B Automatique</a></li>
+                <li><a href="#">Code de la route</a></li>
+                <li><a href="#">Conduite accompagnée</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Espace élève</h4>
+            <ul>
+                <li><a href="login.php">Se connecter</a></li>
+                <li><a href="inscription.php">S'inscrire</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Castellane Auto — Toulon. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="#">Mentions légales</a>
+            <a href="#">Confidentialité</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ── Toggle boîte manuelle / automatique ──
+    let mode = 'manual';
+
+    function switchMode() { setMode(mode === 'manual' ? 'auto' : 'manual'); }
+
+    function setMode(m) {
+        mode = m;
+        const toggle = document.getElementById('toggle');
+        const manual = document.getElementById('plans-manual');
+        const auto   = document.getElementById('plans-auto');
+        const lblM   = document.getElementById('lbl-manual');
+        const lblA   = document.getElementById('lbl-auto');
+
+        if (m === 'auto') {
+            toggle.classList.add('auto');
+            manual.classList.add('hidden');
+            auto.classList.add('visible');
+            lblM.classList.remove('active');
+            lblA.classList.add('active');
+        } else {
+            toggle.classList.remove('auto');
+            manual.classList.remove('hidden');
+            auto.classList.remove('visible');
+            lblM.classList.add('active');
+            lblA.classList.remove('active');
+        }
+    }
+
+    // ── FAQ accordion ──
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
+</script>
+
+</body>
+</html>

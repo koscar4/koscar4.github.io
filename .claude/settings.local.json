@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo:*)",
+      "WebFetch(domain:github.com)",
+      "Read(//c/Users/Oscar-kevineONDZIGUI/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/07a63518-857f-46a1-9d49-c6f1319973ad/adabbc00-ac14-4654-bc87-1b51005f5efa/skills/xlsx/**)",
+      "Bash(python -)",
+      "Bash(pip install:*)",
+      "Bash(where soffice:*)",
+      "Read(//c/Program Files/LibreOffice/program/**)",
+      "Bash(grep -E '\\\\.\\(jpg|jpeg|png|gif|svg|webp\\)$')"
+    ]
+  }
+}

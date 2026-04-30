@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castellane Auto — Galerie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --red:  #C0392B; --red2: #96281B;
+            --gold: #D4A017; --dark: #0d0d0d;
+            --white: #fff;   --tr: .45s cubic-bezier(.25,.8,.25,1);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; color: #ccc; background: #0f0f0f; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--red); }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            background: rgba(10,10,10,.0);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 4rem; height: 72px;
+            transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+        }
+        nav.scrolled {
+            background: rgba(10,10,10,.93);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 40px rgba(0,0,0,.5);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem;
+            color: var(--white); letter-spacing: .5px; text-decoration: none;
+            display: flex; align-items: center; gap: .6rem;
+        }
+        .logo-icon { width: 34px; height: 34px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,.75); text-decoration: none; font-size: .85rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: .3px; transition: color .2s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 2px; background: var(--gold); transform: scaleX(0); transition: transform .2s;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: .4rem 1.3rem; border-radius: 4px; }
+        .nav-cta::after { display: none !important; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 75vh; position: relative; overflow: hidden;
+            display: flex; align-items: flex-end;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('images/hero-driving.jpg');
+            background-size: cover; background-position: center;
+            animation: hzoom 8s ease-out forwards;
+        }
+        @keyframes hzoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(160deg, rgba(8,8,8,.9) 30%, rgba(8,8,8,.6) 70%, rgba(96,28,11,.4) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            padding: 0 4rem 5rem; max-width: 720px;
+            animation: fadeUp .9s ease both .2s;
+        }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+        .hero-eyebrow {
+            font-size: .72rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 4px; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: .8rem;
+        }
+        .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem); color: var(--white); line-height: 1.1; margin-bottom: 1.2rem;
+        }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero p { color: rgba(255,255,255,.5); font-size: 1rem; max-width: 460px; line-height: 1.7; }
+
+        /* ── COUNTER BAR ── */
+        .counter-bar {
+            background: var(--red); padding: 1.4rem 4rem;
+            display: flex; gap: 4rem; justify-content: center; flex-wrap: wrap;
+        }
+        .counter-item { text-align: center; color: #fff; }
+        .counter-item .num { font-family: 'Outfit', sans-serif; font-size: 1.9rem; font-weight: 800; display: block; }
+        .counter-item .lbl { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; opacity: .8; }
+
+        /* ── SECTION HELPERS ── */
+        .section-label {
+            font-size: .7rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 4px; margin-bottom: .8rem;
+            display: flex; align-items: center; gap: .8rem;
+        }
+        .section-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); line-height: 1.2;
+        }
+        .section-title em { font-style: italic; color: var(--gold); }
+        .section { padding: 6rem 0; }
+        .section-inner { max-width: 1320px; margin: 0 auto; padding: 0 4rem; }
+
+        /* ── GALERIE ÉDITORIALE ── */
+        .editorial-grid {
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px;
+        }
+        .grid-item {
+            position: relative; overflow: hidden; cursor: pointer; background: #1c1c1c;
+        }
+        .grid-item::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.8) 100%);
+            opacity: 0; transition: opacity var(--tr);
+        }
+        .grid-item:hover::after { opacity: 1; }
+        .grid-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform var(--tr);
+        }
+        .grid-item:hover img { transform: scale(1.07); }
+        .grid-item .meta {
+            position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+            padding: 1.5rem 1.2rem .9rem;
+            transform: translateY(6px); opacity: 0;
+            transition: opacity var(--tr), transform var(--tr);
+        }
+        .grid-item:hover .meta { opacity: 1; transform: translateY(0); }
+        .meta-label { font-size: .62rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+        .meta-title { font-family: 'Playfair Display', serif; color: #fff; font-size: 1rem; margin-top: .2rem; }
+        .grid-item .zoom-icon {
+            position: absolute; top: 1rem; right: 1rem; z-index: 3;
+            width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.4);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1rem;
+            opacity: 0; transform: scale(.7);
+            transition: opacity .3s, transform .3s;
+        }
+        .grid-item:hover .zoom-icon { opacity: 1; transform: scale(1); }
+        .featured-badge {
+            position: absolute; top: 1rem; left: 1rem; z-index: 4;
+            background: var(--red); color: #fff;
+            font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; padding: .25rem .7rem;
+            border-radius: 2px;
+        }
+        /* grid layout */
+        .gi-1 { grid-column: 1/6;   aspect-ratio: 4/3; }
+        .gi-2 { grid-column: 6/10;  aspect-ratio: 3/4; }
+        .gi-3 { grid-column: 10/13; aspect-ratio: 3/4; }
+        .gi-4 { grid-column: 1/4;   aspect-ratio: 3/4; }
+        .gi-5 { grid-column: 4/9;   aspect-ratio: 16/9; }
+        .gi-6 { grid-column: 9/13;  aspect-ratio: 3/4; }
+
+        /* ── AMBIANCE STRIP ── */
+        .strip-section { padding: 5rem 0; background: #141414; overflow: hidden; }
+        .strip-header { padding: 0 4rem; margin-bottom: 2.5rem; }
+        .strip-track {
+            display: flex; gap: 10px; padding: 0 4rem;
+            overflow-x: auto; scroll-snap-type: x mandatory;
+            -ms-overflow-style: none; scrollbar-width: none; cursor: grab;
+        }
+        .strip-track::-webkit-scrollbar { display: none; }
+        .strip-track.grabbing { cursor: grabbing; }
+        .strip-card {
+            flex: 0 0 300px; scroll-snap-align: start;
+            position: relative; overflow: hidden; border-radius: 4px; background: #1c1c1c;
+            transition: transform .3s;
+        }
+        .strip-card:hover { transform: translateY(-4px); }
+        .strip-card img { height: 220px; width: 100%; object-fit: cover; display: block; transition: transform .4s; }
+        .strip-card:hover img { transform: scale(1.05); }
+        .strip-card-info { padding: 1rem 1.1rem; }
+        .badge-type { font-size: .62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; display: block; }
+        .strip-card-info h4 { font-size: .9rem; color: var(--white); font-weight: 600; }
+        .strip-card-info p { font-size: .8rem; color: #555; margin-top: .2rem; }
+
+        /* ── VEHICLES ── */
+        .vehicules-section { padding: 6rem 0; background: #0f0f0f; }
+        .vehicules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 3rem; }
+        .vehicule-item { position: relative; overflow: hidden; cursor: pointer; }
+        .vehicule-item img { width: 100%; height: 300px; object-fit: cover; display: block; filter: saturate(.75); transition: transform var(--tr), filter var(--tr); }
+        .vehicule-item:hover img { transform: scale(1.05); filter: saturate(1.1); }
+        .vehicule-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.88) 0%, transparent 60%); }
+        .vehicule-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.6rem 1.4rem; }
+        .vehicule-badge {
+            display: inline-block; font-size: .62rem; padding: .22rem .65rem;
+            background: var(--red); color: #fff; letter-spacing: 1px; text-transform: uppercase; margin-bottom: .5rem; border-radius: 2px;
+        }
+        .vehicule-badge.auto { background: #D4A017; }
+        .vehicule-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; }
+        .vehicule-info p { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: .3rem; }
+
+        /* ── INSTRUCTORS GALLERY ── */
+        .team-section { padding: 6rem 0; background: #111; }
+        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 3rem; }
+        .team-item { position: relative; overflow: hidden; aspect-ratio: 3/4; }
+        .team-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter var(--tr), transform var(--tr); }
+        .team-item:hover img { filter: grayscale(0%); transform: scale(1.04); }
+        .team-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 60%); }
+        .team-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.4rem; }
+        .team-info h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
+        .team-info p { font-size: .78rem; color: var(--gold); margin-top: .2rem; }
+        .team-badge {
+            display: inline-block; background: var(--red); color: #fff;
+            font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: .2rem .55rem; border-radius: 2px; margin-top: .5rem;
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,.96); align-items: center; justify-content: center; }
+        .lightbox.open { display: flex; }
+        .lb-wrapper { position: relative; max-width: 90vw; max-height: 90vh; }
+        .lb-wrapper img { max-width: 90vw; max-height: 85vh; object-fit: contain; display: block; border-radius: 4px; }
+        .lb-close { position: fixed; top: 1.5rem; right: 2rem; color: rgba(255,255,255,.6); font-size: 2rem; cursor: pointer; background: none; border: none; line-height: 1; transition: color .2s; }
+        .lb-close:hover { color: var(--gold); }
+        .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #fff; font-size: 1.4rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 0; transition: background .2s; }
+        .lb-nav:hover { background: var(--red); border-color: var(--red); }
+        .lb-prev { left: 1.5rem; }
+        .lb-next { right: 1.5rem; }
+        .lb-caption { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.45); font-size: .82rem; letter-spacing: 1px; text-align: center; white-space: nowrap; }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 7rem 4rem; text-align: center;
+            background: linear-gradient(135deg, #0f0f0f 50%, #1a0a08 100%);
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; border: 1px solid rgba(212,160,23,.06); border-radius: 50%; }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--white); margin-bottom: 1rem; position: relative; }
+        .cta-section p { color: rgba(255,255,255,.4); margin-bottom: 2.5rem; font-size: 1rem; position: relative; }
+        .btn-cta { display: inline-flex; align-items: center; gap: .5rem; background: var(--red); color: #fff; padding: .95rem 2.4rem; text-decoration: none; font-weight: 600; border-radius: 6px; transition: background .2s, transform .2s; box-shadow: 0 4px 20px rgba(192,57,43,.4); position: relative; }
+        .btn-cta:hover { background: var(--red2); transform: translateY(-2px); }
+        .btn-cta-outline { display: inline-flex; align-items: center; gap: .5rem; color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.15); padding: .95rem 2rem; text-decoration: none; margin-left: 1rem; border-radius: 6px; transition: border-color .2s, color .2s; position: relative; }
+        .btn-cta-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ── FOOTER ── */
+        footer { background: #080808; color: #333; text-align: center; padding: 2rem; font-size: .78rem; border-top: 1px solid #161616; }
+        footer a { color: var(--red); text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            nav { padding: 0 2rem; }
+            .hero-content, .section-inner, .strip-header { padding-left: 2rem; padding-right: 2rem; }
+            .strip-track { padding: 0 2rem; }
+            .counter-bar { padding: 1.4rem 2rem; gap: 2rem; }
+            .cta-section { padding: 5rem 2rem; }
+            .vehicules-grid { grid-template-columns: 1fr 1fr; }
+            .team-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 900px) {
+            .editorial-grid { grid-template-columns: repeat(6, 1fr); }
+            .gi-1 { grid-column: 1/7; } .gi-2 { grid-column: 1/4; } .gi-3 { grid-column: 4/7; }
+            .gi-4 { grid-column: 1/4; } .gi-5 { grid-column: 4/7; } .gi-6 { grid-column: 1/7; }
+        }
+        @media (max-width: 600px) {
+            nav { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .hero-content { padding: 0 1.5rem 4rem; }
+            .editorial-grid { grid-template-columns: 1fr 1fr; }
+            .gi-1 { grid-column: 1/3; } .gi-2 { grid-column: 1/2; } .gi-3 { grid-column: 2/3; }
+            .gi-4 { grid-column: 1/2; } .gi-5 { grid-column: 2/3; } .gi-6 { grid-column: 1/3; }
+            .vehicules-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+    <a href="accueil.htm" class="logo">
+        <div class="logo-icon">🚗</div>
+        Castellane <span>&nbsp;Auto</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="accueil.htm">Accueil</a></li>
+        <li><a href="tarifs.htm">Tarifs</a></li>
+        <li><a href="photos.htm" class="active">Photos</a></li>
+        <li><a href="accueil.htm#contact">Contact</a></li>
+        <li><a href="login.php" class="nav-cta">Mon espace</a></li>
+    </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Notre univers en images</p>
+        <h1>La galerie<br><em>Castellane</em></h1>
+        <p>Découvrez notre auto-école, nos véhicules double-commande et l'équipe qui vous accompagne jusqu'au permis.</p>
+    </div>
+</section>
+
+<!-- ══ COUNTER BAR ══ -->
+<div class="counter-bar">
+    <div class="counter-item"><span class="num">26+</span><span class="lbl">ans d'expérience</span></div>
+    <div class="counter-item"><span class="num">12</span><span class="lbl">véhicules récents</span></div>
+    <div class="counter-item"><span class="num">6</span><span class="lbl">moniteurs diplômés</span></div>
+    <div class="counter-item"><span class="num">92%</span><span class="lbl">taux de réussite</span></div>
+</div>
+
+<!-- ══ GALERIE PRINCIPALE ══ -->
+<section class="section" style="background:#0f0f0f;">
+    <div class="section-inner">
+        <p class="section-label">L'auto-école</p>
+        <h2 class="section-title">Notre <em>quotidien</em> en images</h2>
+    </div>
+
+    <div style="max-width:1320px;margin:3rem auto 0;padding:0 4rem;">
+        <div class="editorial-grid" id="mainGallery">
+
+            <!-- 1 — grande gauche : entrée / rue -->
+            <div class="grid-item gi-1" onclick="openLightbox(0)">
+                <img src="images/gallery-1.jpg" alt="Auto-école Castellane">
+                <span class="featured-badge">À la une</span>
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Auto-école</div>
+                    <div class="meta-title">Notre établissement à Toulon</div>
+                </div>
+            </div>
+
+            <!-- 2 — portrait : moniteur & élève -->
+            <div class="grid-item gi-2" onclick="openLightbox(1)">
+                <img src="images/gallery-2.jpg" alt="Leçon de conduite">
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Formation</div>
+                    <div class="meta-title">Leçon en situation réelle</div>
+                </div>
+            </div>
+
+            <!-- 3 — portrait : code de la route / bureau -->
+            <div class="grid-item gi-3" onclick="openLightbox(2)">
+                <img src="images/gallery-3.jpg" alt="Code de la route">
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Code de la route</div>
+                    <div class="meta-title">Salle de préparation</div>
+                </div>
+            </div>
+
+            <!-- 4 — portrait : moniteur -->
+            <div class="grid-item gi-4" onclick="openLightbox(3)">
+                <img src="images/gallery-4.jpg" alt="Moniteur BEPECASER">
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Équipe</div>
+                    <div class="meta-title">Moniteurs diplômés</div>
+                </div>
+            </div>
+
+            <!-- 5 — large paysage : volant / conduite -->
+            <div class="grid-item gi-5" onclick="openLightbox(4)">
+                <img src="images/gallery-5.jpg" alt="Conduite double commande">
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Conduite</div>
+                    <div class="meta-title">Double commande sur route</div>
+                </div>
+            </div>
+
+            <!-- 6 — portrait : tableau de bord / intérieur -->
+            <div class="grid-item gi-6" onclick="openLightbox(5)">
+                <img src="images/gallery-6.jpg" alt="Intérieur véhicule">
+                <span class="zoom-icon">⊕</span>
+                <div class="meta">
+                    <div class="meta-label">Véhicule</div>
+                    <div class="meta-title">Intérieur double commande</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══ STRIP AMBIANCE ══ -->
+<section class="strip-section">
+    <div class="strip-header">
+        <p class="section-label">Ambiance</p>
+        <h2 class="section-title" style="margin-bottom:0">Moments <em>du quotidien</em></h2>
+    </div>
+    <div class="strip-track" id="stripTrack">
+
+        <div class="strip-card">
+            <img src="images/strip-1.jpg" alt="Parc auto">
+            <div class="strip-card-info">
+                <span class="badge-type">Flotte</span>
+                <h4>Parc double-commande</h4>
+                <p>Véhicules récents, bien entretenus</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-2.jpg" alt="Monitrice">
+            <div class="strip-card-info">
+                <span class="badge-type">Équipe</span>
+                <h4>Moniteurs BEPECASER</h4>
+                <p>Pédagogie adaptée à chacun</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-3.jpg" alt="Code de la route">
+            <div class="strip-card-info">
+                <span class="badge-type">Code</span>
+                <h4>Logiciel interactif agréé</h4>
+                <p>Accès illimité à la salle et en ligne</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-4.jpg" alt="Conduite sur route">
+            <div class="strip-card-info">
+                <span class="badge-type">Conduite</span>
+                <h4>Sur route et autoroute</h4>
+                <p>Itinéraires variés dès le début</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-4.jpg" alt="Voiture auto-école">
+            <div class="strip-card-info">
+                <span class="badge-type">Pratique</span>
+                <h4>Circulation urbaine</h4>
+                <p>Toulon et ses environs</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-6.jpg" alt="Réussite permis">
+            <div class="strip-card-info">
+                <span class="badge-type">Résultats</span>
+                <h4>Taux de réussite élevé</h4>
+                <p>92% de nos élèves réussissent</p>
+            </div>
+        </div>
+
+        <div class="strip-card">
+            <img src="images/strip-7.jpg" alt="Moniteur accompagnant">
+            <div class="strip-card-info">
+                <span class="badge-type">AAC</span>
+                <h4>Conduite accompagnée</h4>
+                <p>Dès 15 ans avec un accompagnateur</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══ PARC AUTO ══ -->
+<section class="vehicules-section">
+    <div class="section-inner">
+        <p class="section-label">Notre flotte</p>
+        <h2 class="section-title">Le <em>parc automobile</em></h2>
+    </div>
+    <div class="vehicules-grid" style="max-width:1320px;margin:3rem auto 0;">
+
+        <div class="vehicule-item">
+            <img src="images/vehicle-1.jpg" alt="Renault Clio">
+            <div class="vehicule-overlay"></div>
+            <div class="vehicule-info">
+                <span class="vehicule-badge">Boîte manuelle</span>
+                <h3>Renault Clio V</h3>
+                <p>2022 · Double commande · Idéal débutants</p>
+            </div>
+        </div>
+
+        <div class="vehicule-item">
+            <img src="images/vehicle-2.jpg" alt="Peugeot 208">
+            <div class="vehicule-overlay"></div>
+            <div class="vehicule-info">
+                <span class="vehicule-badge">Boîte manuelle</span>
+                <h3>Peugeot 208</h3>
+                <p>2023 · Double commande · Direction assistée</p>
+            </div>
+        </div>
+
+        <div class="vehicule-item">
+            <img src="images/vehicle-3.jpg" alt="Toyota Yaris Automatique">
+            <div class="vehicule-overlay"></div>
+            <div class="vehicule-info">
+                <span class="vehicule-badge auto">Automatique</span>
+                <h3>Toyota Yaris</h3>
+                <p>2023 · Boîte automatique · Permis B auto &amp; AAC</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══ ÉQUIPE ══ -->
+<section class="team-section">
+    <div class="section-inner">
+        <p class="section-label">Notre équipe</p>
+        <h2 class="section-title">Les <em>moniteurs</em> Castellane</h2>
+    </div>
+    <div class="team-grid" style="max-width:1320px;margin:3rem auto 0;">
+
+        <div class="team-item" onclick="openLightbox(6)">
+            <img src="images/team-1.jpg" alt="Marc Dupont">
+            <div class="team-overlay"></div>
+            <div class="team-info">
+                <h3>Marc Dupont</h3>
+                <p>Moniteur principal</p>
+                <span class="team-badge">BEPECASER</span>
+            </div>
+        </div>
+
+        <div class="team-item" onclick="openLightbox(7)">
+            <img src="images/team-2.jpg" alt="Sophie Leroy">
+            <div class="team-overlay"></div>
+            <div class="team-info">
+                <h3>Sophie Leroy</h3>
+                <p>Directrice pédagogique</p>
+                <span class="team-badge">TP ECSR</span>
+            </div>
+        </div>
+
+        <div class="team-item" onclick="openLightbox(8)">
+            <img src="images/team-3.jpg" alt="Julien Martin">
+            <div class="team-overlay"></div>
+            <div class="team-info">
+                <h3>Julien Martin</h3>
+                <p>Spécialiste AAC</p>
+                <span class="team-badge">BEPECASER</span>
+            </div>
+        </div>
+
+        <div class="team-item" onclick="openLightbox(9)">
+            <img src="images/team-4.jpg" alt="Claire Moreau">
+            <div class="team-overlay"></div>
+            <div class="team-info">
+                <h3>Claire Moreau</h3>
+                <p>Monitrice conduite auto</p>
+                <span class="team-badge">TP ECSR</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+    <h2>Prêt à passer votre permis ?</h2>
+    <p>Rejoignez Castellane Auto et bénéficiez d'un suivi personnalisé dès le premier jour.</p>
+    <a href="tarifs.htm" class="btn-cta">&#8594; Découvrir nos tarifs</a>
+    <a href="accueil.htm#contact" class="btn-cta-outline">Nous contacter</a>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    &copy; 2025 Castellane Auto — Toulon &nbsp;|&nbsp;
+    <a href="accueil.htm">Accueil</a> &nbsp;·&nbsp;
+    <a href="tarifs.htm">Tarifs</a> &nbsp;·&nbsp;
+    <a href="photos.htm">Photos</a>
+    &nbsp;·&nbsp; <a href="../login.php" style="color:#333;">Administration</a>
+</footer>
+
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-nav lb-prev" onclick="navLightbox(-1)">‹</button>
+    <div class="lb-wrapper">
+        <img id="lb-img" src="" alt="">
+    </div>
+    <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
+    <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<script>
+// Navbar
+const nb = document.getElementById('navbar');
+window.addEventListener('scroll', () => nb.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+// Lightbox data
+const gallery = [
+    { src: 'images/gallery-1.jpg', caption: 'Notre établissement — Castellane Auto, Toulon' },
+    { src: 'images/gallery-2.jpg', caption: 'Leçon de conduite en situation réelle' },
+    { src: 'images/gallery-3.jpg', caption: 'Salle de préparation au code de la route' },
+    { src: 'images/gallery-4.jpg', caption: 'Nos moniteurs diplômés BEPECASER / TP ECSR' },
+    { src: 'images/gallery-5.jpg', caption: 'Double commande sur routes varloises' },
+    { src: 'images/gallery-6.jpg', caption: 'Intérieur véhicule double commande' },
+    { src: 'images/gallery-4.jpg', caption: 'Marc Dupont — Moniteur principal, BEPECASER' },
+    { src: 'images/team-2.jpg', caption: 'Sophie Leroy — Directrice pédagogique, TP ECSR' },
+    { src: 'images/team-3.jpg', caption: 'Julien Martin — Spécialiste AAC, BEPECASER' },
+    { src: 'images/team-4.jpg', caption: 'Claire Moreau — Monitrice conduite auto, TP ECSR' },
+];
+let ci = 0;
+
+function openLightbox(i) {
+    ci = i; updateLb();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function navLightbox(d) { ci = (ci + d + gallery.length) % gallery.length; updateLb(); }
+function updateLb() {
+    document.getElementById('lb-img').src = gallery[ci].src;
+    document.getElementById('lb-caption').textContent = gallery[ci].caption;
+}
+document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+});
+
+// Strip drag
+const track = document.getElementById('stripTrack');
+let isDown = false, startX, sl;
+track.addEventListener('mousedown', e => { isDown = true; track.classList.add('grabbing'); startX = e.pageX - track.offsetLeft; sl = track.scrollLeft; });
+track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+track.addEventListener('mouseup',    () => { isDown = false; track.classList.remove('grabbing'); });
+track.addEventListener('mousemove',  e => { if (!isDown) return; e.preventDefault(); track.scrollLeft = sl - (e.pageX - track.offsetLeft - startX) * 1.4; });
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 400 >>
+stream
+BT
+/F1 24 Tf
+50 750 Td
+(Oscar NGUEMA - Curriculum Vitae) Tj
+0 -40 Td
+/F1 12 Tf
+(BTS SIO SLAM - Developpeur Web) Tj
+0 -30 Td
+(Formation Academique) Tj
+0 -20 Td
+/F1 10 Tf
+(2018-2019: Baccalaureat general - Lycee Rene Descartes) Tj
+0 -15 Td
+(2020-2021: BTS SIO 1ere annee - ITIC Paris) Tj
+0 -15 Td
+(2025-2026: BTS SIO 2eme annee SLAM - IRIS Paris) Tj
+0 -30 Td
+/F1 12 Tf
+(Competences) Tj
+0 -20 Td
+/F1 10 Tf
+(Langages: HTML, CSS, JavaScript, PHP, Java, C++) Tj
+0 -15 Td
+(Frontend: HTML5, CSS3, JavaScript ES6+, Responsive Design) Tj
+0 -15 Td
+(Backend: PHP, MySQL, Architecture MVC) Tj
+0 -15 Td
+(Outils: Git, GitHub, VS Code, WordPress, Shopify) Tj
+0 -30 Td
+/F1 12 Tf
+(Projets) Tj
+0 -20 Td
+/F1 10 Tf
+(Snake - Jeu JavaScript avec Canvas) Tj
+0 -15 Td
+(Boutique Shopify - Site e-commerce) Tj
+0 -15 Td
+(Site E-commerce Custom - Fullstack PHP/MySQL) Tj
+0 -15 Td
+(Auto-ecole Client Lourd - Application Java Swing) Tj
+0 -15 Td
+(Auto-ecole Client Leger - Plateforme Web PHP) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000247 00000 n 
+0000000705 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+793
+%%EOF
