@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio d'Oscar Kévine NGUEMA — Étudiant BTS SIO SLAM à l'IRIS Paris. Développeur web PHP, Angular, Firebase. 9+ projets réalisés dont un système de paiement Stripe en stage.">
-    <meta name="keywords" content="Oscar NGUEMA, BTS SIO SLAM, développeur web, PHP, Angular, Firebase, Stripe, JavaScript, portfolio, Paris, IRIS">
+    <meta name="description" content="Portfolio d'Oscar Kévine NGUEMA — Étudiant BTS SIO SLAM à l'IRIS Paris. Développeur web PHP, Angular, Firebase. 9+ projets réalisés dont une migration Angular 12 vers 21 en stage.">
+    <meta name="keywords" content="Oscar NGUEMA, BTS SIO SLAM, développeur web, PHP, Angular, Firebase, NgRx, AngularFire, JavaScript, portfolio, Paris, IRIS">
     <meta name="author" content="Oscar Kévine NGUEMA">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#5B5FEF">
     <!-- Open Graph -->
     <meta property="og:title" content="Oscar Kévine NGUEMA — Portfolio BTS SIO SLAM">
-    <meta property="og:description" content="Étudiant développeur web BTS SIO SLAM. PHP, Angular, Firebase, Stripe. 9 projets réalisés, 2 certifications.">
+    <meta property="og:description" content="Étudiant développeur web BTS SIO SLAM. PHP, Angular, Firebase, NgRx. 9 projets réalisés, 2 certifications.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/img/hero-image.jpg">
     <meta property="og:locale" content="fr_FR">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Oscar Kévine NGUEMA — Portfolio">
-    <meta name="twitter:description" content="Développeur web BTS SIO SLAM — PHP, Angular, Firebase, Stripe">
+    <meta name="twitter:description" content="Développeur web BTS SIO SLAM — PHP, Angular, Firebase, NgRx">
     <title>Oscar Kévine NGUEMA — Portfolio BTS SIO SLAM | Développeur Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,24 +26,27 @@
 <!-- ====== NAVIGATION ====== -->
 <nav class="navbar" role="navigation" aria-label="Navigation principale">
     <div class="nav-container">
-        <div class="nav-logo">
-            <a href="#accueil" aria-label="Retour à l'accueil">Portfolio<span>.</span></a>
-        </div>
-
-        <div class="nav-right">
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#veille">Veille Tech</a></li>
-                <li><a href="#objectif">Objectif</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="cv.html" target="_blank" rel="noopener" style="font-weight:700;">CV</a></li>
-            </ul>
+        <div class="nav-brand">
+            <div class="nav-logo">
+                <a href="#accueil" aria-label="Retour à l'accueil">Portfolio<span>.</span></a>
+            </div>
 
             <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+        </div>
 
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#parcours">À propos</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#tableau-competences">Tableau</a></li>
+            <li><a href="#veille">Veille Tech</a></li>
+            <li><a href="#objectif">Objectif</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a class="nav-cv" href="cv.html" target="_blank" rel="noopener">CV</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -57,11 +60,16 @@
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-tag">BTS SIO SLAM · Paris</div>
-            <h1>Oscar<br><span>Kévine</span> NGUEMA</h1>
-            <p class="hero-subtitle">Étudiant développeur web & logiciel</p>
+            <h1 class="hero-name" aria-label="Oscar Kévine NGUEMA">
+                <span class="hero-name-line hero-name-line-white">Oscar</span>
+                <span class="hero-name-line">Kévine</span>
+                <span class="hero-name-line hero-name-line-white">NGUEMA</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="typewriter-text">Étudiant développeur web & logiciel</span><span class="typewriter-cursor" aria-hidden="true">|</span>
+            </p>
             <p class="hero-description">
-                En BTS SIO SLAM à l'IRIS Paris, je conçois des applications web et logicielles du front-end au back-end.
-                De la gestion d'auto-école en Java à l'intégration d'un système de paiement <strong>Stripe + Angular + Firebase</strong> en stage — chaque projet renforce mes compétences techniques et mon autonomie.
+                En BTS SIO SLAM à IRIS Paris, je conçois des applications web & logicielles — du back-end au front-end. Projets concrets, stack moderne, autonomie.
             </p>
             <div class="hero-buttons">
                 <a href="#projets" class="btn btn-primary">Voir mes projets</a>
@@ -100,56 +108,502 @@
     </div>
 </section>
 
-<!-- ====== PARCOURS ====== -->
-<section id="parcours" class="parcours">
+<!-- ====== À PROPOS ====== -->
+<section id="parcours" class="parcours about">
+    <div class="container">
+        <div class="about-title reveal">
+            <h2>À Propos <span>de moi</span></h2>
+        </div>
+
+        <div class="about-layout">
+            <div class="about-visual reveal reveal-delay-1" aria-hidden="true">
+                <div class="about-code-card">
+                    <span>0 1 0 0 1 1 0 1</span>
+                    <span>1 0 1 1 0 0 1 0</span>
+                    <span>0 0 1 0 1 0 1 1</span>
+                    <span>1 1 0 0 1 1 0 0</span>
+                    <span>0 1 1 0 0 1 0 1</span>
+                    <span>1 0 0 1 1 0 1 0</span>
+                    <span>0 1 0 1 0 1 1 0</span>
+                    <span>1 1 0 1 0 0 1 1</span>
+                    <span>0 0 1 1 0 1 0 0</span>
+                  
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-intro reveal reveal-delay-2">
+                    <h3>Qui suis-je ?</h3>
+                    <p>
+                        Je suis <strong>Oscar Kévine Nguema</strong>, étudiant en <strong>BTS SIO option SLAM</strong> à IRIS Paris.
+                        Je m'oriente vers le développement d'applications web et logicielles, avec un intérêt particulier
+                        pour la structuration du code, les bases de données et la sécurité.
+                    </p>
+                    <p>
+                        Au cours de ma formation, j'ai réalisé plusieurs projets concrets en PHP, Java et MySQL,
+                        en lien avec des besoins métiers. Je développe progressivement un profil orienté développement
+                        applicatif et web.
+                    </p>
+                </div>
+
+                <div class="about-cards">
+                    <article class="about-card reveal reveal-delay-3">
+                        <div class="about-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m22 10-10-5-10 5 10 5 10-5Z"></path>
+                                <path d="M6 12v5c3 2 9 2 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Éducation</h3>
+                        <ul>
+                            <li>
+                                <strong>BTS SIO SLAM 1</strong>
+                                <span>Lycée René Descartes, Gabon</span>
+                            </li>
+                            <li>
+                                <strong>BTS SIO SLAM</strong>
+                                <span>IRIS Paris, promotion 2026</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="about-card reveal reveal-delay-4">
+                        <div class="about-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"></path>
+                                <path d="M3 8h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"></path>
+                                <path d="M3 13h18"></path>
+                                <path d="M10 13v2h4v-2"></path>
+                            </svg>
+                        </div>
+                        <h3>Expériences</h3>
+                        <ul>
+                            <li>
+                                <strong>Stage 1ère année</strong>
+                                <span>Site e-commerce Angular/Firebase</span>
+                            </li>
+                            <li>
+                                <strong>Stage 2ème année</strong>
+                                <span>Migration Angular 12 → 21</span>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ====== PROJETS ====== -->
+<section id="projets" class="projets">
     <div class="container">
         <div class="section-header reveal">
-            <div class="section-label">Mon histoire</div>
-            <h2>Mon Parcours</h2>
-            <p>De la découverte de l'informatique au développement web</p>
+            <div class="section-label">Ce que j'ai construit</div>
+            <h2>Mes Projets</h2>
+            <p>Projets scolaires, stages et réalisations personnelles</p>
         </div>
 
-        <div class="parcours-intro reveal">
-            <p>Né au Gabon et arrivé en France pour mes études supérieures, j'ai choisi le <strong>BTS SIO option SLAM</strong> par passion pour la création d'applications. Ce qui m'a attiré vers le développement logiciel, c'est la possibilité de transformer une idée en produit fonctionnel — du code au résultat concret. Chaque projet réalisé au cours de ma formation m'a permis de progresser techniquement et de développer une approche rigoureuse et structurée du travail.</p>
+        <div class="filter-buttons reveal" role="group" aria-label="Filtrer les projets">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="scolaire">Projets scolaires</button>
+            <button class="filter-btn" data-filter="stage">Stages</button>
+            <button class="filter-btn" data-filter="certification">Certifications</button>
         </div>
 
-        <div class="timeline">
-            <article class="timeline-item reveal">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <time dateTime="2018-09/2019-06">2018 – 2019</time>
-                    <h3>Baccalauréat général</h3>
-                    <p class="institution">Lycée René Descartes — Gabon</p>
-                    <p>Formation générale scientifique. C'est ici que naît mon intérêt pour l'informatique et la logique algorithmique, en parallèle de mes cours de mathématiques et physique.</p>
+        <div class="projects-grid">
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Auto-école — Client Léger</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
                 </div>
             </article>
-            <article class="timeline-item reveal reveal-delay-1">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <time dateTime="2020-09/2021-06">2020 – 2021</time>
-                    <h3>BTS SIO 1ère année</h3>
-                    <p class="institution">ITIC Paris</p>
-                    <p>Première plongée dans l'informatique professionnelle : bases du développement web (HTML, CSS, PHP), introduction aux bases de données SQL, gestion de parc informatique avec GLPI. Premier stage en entreprise.</p>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Auto-école — Client Lourd</h3>
+                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Swing</span>
+                        <span class="tech-badge">JDBC</span>
+                        <span class="tech-badge">MVC</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
                 </div>
             </article>
-            <article class="timeline-item reveal reveal-delay-2">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <time dateTime="2025-09/2026-06">2025 – 2026</time>
-                    <h3>BTS SIO 2ème année — SLAM</h3>
-                    <p class="institution">IRIS Paris</p>
-                    <p>Spécialisation en <strong>Solutions Logicielles et Applications Métier</strong> : Angular, Firebase, PHP/MySQL, architecture MVC, sécurité web, gestion de projet. Stage de 5 semaines avec intégration Stripe dans une application Angular.</p>
+
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-snake-c.svg" alt="Snake en C — capture du terminal" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Snake — Langage C</h3>
+                    <p class="project-description">Jeu du serpent en C pur (conio.h) : 3 pommes générées à la fois, croissance après avoir toutes mangées, sauvegarde binaire de partie, mode Ordinateur avec IA greedy et deux vitesses.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">conio.h</span>
+                        <span class="tech-badge">Windows API</span>
+                        <span class="tech-badge">IA greedy</span>
+                        <span class="tech-badge">Git</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation procédurale en C, gestion de la mémoire, algorithme IA, sérialisation binaire (save/load), gestion de projet (Trello, Gantt)</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B6 — Organisation du travail</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="snake-c">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snake_C" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
                 </div>
             </article>
-            <article class="timeline-item reveal reveal-delay-3">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <time>2026+</time>
-                    <h3>Objectif : Licence / Bachelor Informatique</h3>
-                    <p class="institution">Poursuite d'études · Développeur Full-Stack</p>
-                    <p>Après l'obtention du BTS SIO SLAM, je souhaite poursuivre en <strong>Bachelor ou Licence Pro</strong> spécialisé en développement web full-stack, avec pour objectif professionnel d'évoluer vers un poste de développeur dans une entreprise tech innovante.</p>
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Site E-Enseignement</h3>
+                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">CMS</span>
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">IONOS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B5 — Mise à disposition service</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
+                    </div>
                 </div>
             </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Scolarité</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Boutique Shopify</h3>
+                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Shopify</span>
+                        <span class="tech-badge">Liquid</span>
+                        <span class="tech-badge">CSS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-snake-js.svg" alt="Jeu Snake JavaScript — Canvas API" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Snake</h3>
+                    <p class="project-description">Recréation du classique jeu Snake avec système de score, accélération progressive et gestion du pause/reset. Rendu graphique via Canvas API.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Canvas API</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation événementielle, boucle de jeu avec <code>requestAnimationFrame</code>, gestion d'état</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="snake">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="projects/Snakegame/Snakegame/index.html" target="_blank" rel="noopener noreferrer">Démo</a>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snakegame" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-morpion.svg" alt="Morpion 2.0 — jeu de tic-tac-toe personnalisé" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Morpion 2.0</h3>
+                    <p class="project-description">Jeu de morpion avec interface moderne et choix de symboles personnalisés (images ou icônes) pour chaque joueur, détection de victoire et aperçu en temps réel.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">DOM dynamique</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Manipulation du DOM, logique de jeu, gestion d'état, événements utilisateurs</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="morpion">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="projects/Morpion2.0/index.html" target="_blank" rel="noopener noreferrer">Démo</a>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/morpion2.0" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-glpi.png" alt="GLPI — Gestion de parc informatique" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>GLPI — Gestion de parc informatique</h3>
+                    <p class="project-description">Installation et configuration d'un environnement Linux/Apache/PHP/MySQL complet pour déployer GLPI : gestion des tickets d'assistance IT, inventaire du matériel et administration des utilisateurs.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Linux</span>
+                        <span class="tech-badge">Apache</span>
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">GLPI</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration Linux, déploiement LAMP, configuration GLPI, gestion des tickets IT et inventaire parc</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B1 — Patrimoine informatique</span>
+                        <span class="bts-badge">B2 — Réponse aux incidents</span>
+                        <span class="bts-badge">B5 — Mise à disposition service</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="glpi">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="assets/documentation-glpi.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation PDF</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/TicTacToeJava.png" alt="Tic-Tac-Toe Java — capture de l'application" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Tic-Tac-Toe Java</h3>
+                    <p class="project-description">Jeu de morpion développé en Java avec interface graphique Swing. Deux joueurs s'affrontent sur une grille 3×3 avec détection automatique de victoire et option de réinitialisation.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Swing</span>
+                        <span class="tech-badge">POO</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation orientée objet en Java, interface graphique Swing, gestion des événements et logique de jeu</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="tictactoe">Voir le projet</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/Convertisseur.png" alt="Convertisseur Java — capture de l'application" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Convertisseur Java</h3>
+                    <p class="project-description">Application desktop Java de conversion d'unités : températures, distances, poids et devises. Interface graphique Swing intuitive avec conversion en temps réel à la saisie.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Swing</span>
+                        <span class="tech-badge">POO</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Conception d'interface Swing, gestion des événements, calculs de conversion, structuration en classes Java</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="convertisseur">Voir le projet</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-2" data-category="stage">
+                <div class="project-image">
+                    <img src="assets/img/stage1.png" alt="Délice Éternel Gabon — Stage UP2DATE-IT" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Stage · 1ère année</span>
+                    <h3>Stage — Délice Éternel Gabon</h3>
+                    <p class="project-description">Développement d'un site e-commerce de vêtements africains, bijoux et masques avec Angular 12 + Firebase. Architecture modulaire, gestion d'état NgRx, authentification, i18n et déploiement cloud.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Angular 12</span>
+                        <span class="tech-badge">NgRx</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">SendGrid</span>
+                    </div>
+                    <div class="project-acquis">
+                        <p><strong>Acquis :</strong> Architecture Angular avancée, Firebase full-stack, gestion d'état NgRx, déploiement cloud en conditions réelles.</p>
+                    </div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B1 — Patrimoine informatique</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B6 — Développement professionnel</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="stage-1">Voir le projet</button>
+                        <a class="btn btn-outline btn-small" href="https://delice-eternel-gabon.web.app" target="_blank" rel="noopener noreferrer">Site déployé</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="stage">
+                <div class="project-image">
+                    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo Angular — Stage migration Angular" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Stage · 5 semaines · 2ème année</span>
+                    <h3>Stage – Migration Angular 12 → 21</h3>
+                    <p class="project-description">Migration progressive d'une SPA e-commerce (Angular 12 → 13 → … → 21) pour l'entreprise UP2DATE-IT. Modernisation de l'architecture, migration du SDK Firebase compat vers le SDK modulaire, et mise à jour de NgRx.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Angular</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">NgRx</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">AngularFire</span>
+                        <span class="tech-badge">Angular Material</span>
+                        <span class="tech-badge">ngx-translate</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Migration progressive Angular (12→21), SDK Firebase modulaire, NgRx <code>createEffect</code>, composants standalone, résolution de conflits npm/dépendances, internationalisation (ngx-translate), utilisation de l'IA comme assistant technique de débogage</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B5 — Documentation &amp; service</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="stage-2">Voir le projet</button>
+                        <a class="btn btn-outline btn-small" href="assets/rapport-stage-2-angular.pdf" target="_blank" rel="noopener noreferrer">Rapport de stage</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="certification">
+                <div class="project-image">
+                    <img src="assets/img/angular-pokedex-app.png" alt="Pokédex Angular — application de gestion de Pokémon" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Certification Udemy · Angular</span>
+                    <h3>Pokédex Angular</h3>
+                    <p class="project-description">Application Angular complète de gestion de Pokémon : liste filtrée en temps réel, fiche détaillée, ajout, édition et suppression. Architecture moderne avec signaux, services et routing.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Angular</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">RxJS</span>
+                        <span class="tech-badge">Bootstrap</span>
+                        <span class="tech-badge">JSON Server</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Composants standalone, signaux Angular, services HTTP, routing protégé (guards), directives personnalisées, formulaires réactifs</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="pokedex">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/angular-pokedex-app" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>
@@ -188,7 +642,7 @@
                 <div class="skill-item">
                     <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="Angular logo" width="45"><span class="icon-fallback" style="font-size:0.65rem;background:#DD0031;color:#fff;border-radius:4px;padding:2px 4px;">ANG</span></div>
                     <h4>Angular</h4>
-                    <p>Développement d'applications web (Pokédex, module Stripe) avec routing, services, appels API (HttpClient) et structuration en composants.</p>
+                    <p>Développement d'applications web (Pokédex, migration Angular 12 vers 21) avec routing, services, appels API (HttpClient) et structuration en composants.</p>
                     <span class="skill-level skill-level--intermediaire">Intermédiaire</span>
                 </div>
                 <div class="skill-item">
@@ -213,7 +667,7 @@
                 <div class="skill-item">
                     <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase logo" width="50"><span class="icon-fallback" style="font-size:0.7rem;background:#FFCA28;color:#333;border-radius:4px;padding:2px 4px;">FB</span></div>
                     <h4>Firebase</h4>
-                    <p>Intégration de solutions cloud : Firebase Functions pour webhooks Stripe et Firestore pour la gestion en temps réel des données de paiement.</p>
+                    <p>Intégration de solutions cloud : Firebase modulaire, Firestore, Auth et adaptation AngularFire dans une application e-commerce migrée.</p>
                     <span class="skill-level skill-level--intermediaire">Intermédiaire</span>
                 </div>
                 <div class="skill-item">
@@ -306,418 +760,314 @@
     </div>
 </section>
 
-<!-- ====== PROJETS ====== -->
-<section id="projets" class="projets">
+<!-- ====== TABLEAU DE COMPÉTENCES ====== -->
+<style>
+    .competence-table-section {
+        min-height: calc(100vh - var(--nav-h));
+        display: flex;
+        align-items: center;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        background:
+            linear-gradient(rgba(15, 15, 26, .94), rgba(15, 15, 26, .96)),
+            linear-gradient(135deg, #2B2FCC 0%, #5B5FEF 46%, #7B7FFF 100%);
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .competence-table-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+        mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+    }
+
+    .competence-table-section .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .competence-table-title {
+        text-align: center;
+        margin-bottom: .55rem;
+        color: #fff;
+        font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+        letter-spacing: 0;
+    }
+
+    .competence-table-title .title-main {
+        color: #8B8EFF;
+    }
+
+    .competence-table-title .title-accent {
+        color: var(--accent-2);
+    }
+
+    .competence-table-reference {
+        text-align: center;
+        color: rgba(255, 255, 255, .58);
+        font-size: .9rem;
+        font-weight: 600;
+        margin: 0 0 1.55rem;
+    }
+
+    .competence-table-wrap {
+        background: rgba(255, 255, 255, .075);
+        border: 1px solid rgba(139, 142, 255, .24);
+        border-radius: var(--radius-xl);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .competence-table-wrap::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    .competence-table-wrap::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, .06);
+        border-radius: var(--radius-full);
+    }
+
+    .competence-table-wrap::-webkit-scrollbar-thumb {
+        background: rgba(139, 142, 255, .55);
+        border-radius: var(--radius-full);
+    }
+
+    .competence-table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        color: #fff;
+    }
+
+    .competence-table thead {
+        background: rgba(255, 255, 255, .07);
+    }
+
+    .competence-table th {
+        padding: .85rem .65rem;
+        text-align: left;
+        color: var(--accent-2);
+        font-size: .62rem;
+        font-weight: 800;
+        letter-spacing: .9px;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .competence-table th:first-child {
+        width: 26%;
+    }
+
+    .competence-table th:not(:first-child),
+    .competence-table td:not(:first-child) {
+        text-align: center;
+    }
+
+    .competence-table td {
+        padding: .72rem .65rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+        color: rgba(255, 255, 255, .76);
+        font-size: .86rem;
+        transition: background var(--t), color var(--t);
+    }
+
+    .competence-table tbody tr {
+        transition: background var(--t), transform var(--t);
+    }
+
+    .competence-table tbody tr:hover {
+        background: rgba(139, 142, 255, .11);
+    }
+
+    .competence-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .competence-project {
+        color: #fff;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .competence-valid {
+        color: var(--success);
+        font-size: 1.18rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+
+    .competence-empty {
+        color: rgba(255, 255, 255, .38);
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    @media (max-width: 1100px) {
+        .competence-table {
+            min-width: 900px;
+            table-layout: auto;
+        }
+
+        .competence-table th:first-child {
+            width: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .competence-table-section {
+            min-height: auto;
+            display: block;
+        }
+
+        .competence-table-title {
+            margin-bottom: .45rem;
+        }
+
+        .competence-table-wrap {
+            border-radius: var(--radius-lg);
+        }
+
+        .competence-table {
+            min-width: 860px;
+        }
+
+        .competence-table th,
+        .competence-table td {
+            padding: .72rem .75rem;
+            font-size: .82rem;
+        }
+
+        .competence-table th {
+            font-size: .6rem;
+        }
+    }
+</style>
+
+<section id="tableau-competences" class="competence-table-section">
     <div class="container">
-        <div class="section-header reveal">
-            <div class="section-label">Ce que j'ai construit</div>
-            <h2>Mes Projets</h2>
-            <p>Projets scolaires, stages et réalisations personnelles</p>
-        </div>
+        <h2 class="competence-table-title reveal">
+            <span class="title-main">Tableau de </span><span class="title-accent">Compétences</span>
+        </h2>
+        <p class="competence-table-reference reveal">Référentiel BTS SIO officiel</p>
 
-        <div class="filter-buttons reveal" role="group" aria-label="Filtrer les projets">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="scolaire">Projets scolaires</button>
-            <button class="filter-btn" data-filter="stage">Stages</button>
-            <button class="filter-btn" data-filter="certification">Certifications</button>
-        </div>
-
-        <div class="projects-grid">
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-snake-c.svg" alt="Snake en C — capture du terminal" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Snake — Langage C</h3>
-                    <p class="project-description">Jeu du serpent en C pur (conio.h) : 3 pommes générées à la fois, croissance après avoir toutes mangées, sauvegarde binaire de partie, mode Ordinateur avec IA greedy et deux vitesses.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">C</span>
-                        <span class="tech-badge">conio.h</span>
-                        <span class="tech-badge">Windows API</span>
-                        <span class="tech-badge">IA greedy</span>
-                        <span class="tech-badge">Git</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation procédurale en C, gestion de la mémoire, algorithme IA, sérialisation binaire (save/load), gestion de projet (Trello, Gantt)</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                        <span class="bts-badge">B6 — Organisation du travail</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="snake-c">Voir le projet</button>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snake_C" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-snake-js.svg" alt="Jeu Snake JavaScript — Canvas API" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Snake</h3>
-                    <p class="project-description">Recréation du classique jeu Snake avec système de score, accélération progressive et gestion du pause/reset. Rendu graphique via Canvas API.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">Canvas API</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation événementielle, boucle de jeu avec <code>requestAnimationFrame</code>, gestion d'état</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="snake">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="projects/Snakegame/Snakegame/index.html" target="_blank" rel="noopener noreferrer">Démo</a>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snakegame" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-morpion.svg" alt="Morpion 2.0 — jeu de tic-tac-toe personnalisé" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Morpion 2.0</h3>
-                    <p class="project-description">Jeu de morpion avec interface moderne et choix de symboles personnalisés (images ou icônes) pour chaque joueur, détection de victoire et aperçu en temps réel.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">DOM dynamique</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Manipulation du DOM, logique de jeu, gestion d'état, événements utilisateurs</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="morpion">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="projects/Morpion2.0/index.html" target="_blank" rel="noopener noreferrer">Démo</a>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/morpion2.0" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Boutique Shopify</h3>
-                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Shopify</span>
-                        <span class="tech-badge">Liquid</span>
-                        <span class="tech-badge">CSS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Site E-Enseignement</h3>
-                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">WordPress</span>
-                        <span class="tech-badge">CMS</span>
-                        <span class="tech-badge">Figma</span>
-                        <span class="tech-badge">IONOS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                        <span class="bts-badge">B5 — Mise à disposition service</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Auto-école — Client Lourd</h3>
-                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Swing</span>
-                        <span class="tech-badge">JDBC</span>
-                        <span class="tech-badge">MVC</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Auto-école — Client Léger</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-glpi.png" alt="GLPI — Gestion de parc informatique" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>GLPI — Gestion de parc informatique</h3>
-                    <p class="project-description">Installation et configuration d'un environnement Linux/Apache/PHP/MySQL complet pour déployer GLPI : gestion des tickets d'assistance IT, inventaire du matériel et administration des utilisateurs.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Linux</span>
-                        <span class="tech-badge">Apache</span>
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">GLPI</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration Linux, déploiement LAMP, configuration GLPI, gestion des tickets IT et inventaire parc</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B1 — Patrimoine informatique</span>
-                        <span class="bts-badge">B2 — Réponse aux incidents</span>
-                        <span class="bts-badge">B5 — Mise à disposition service</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="glpi">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="assets/documentation-glpi.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation PDF</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Scolarité</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/TicTacToeJava.png" alt="Tic-Tac-Toe Java — capture de l'application" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Tic-Tac-Toe Java</h3>
-                    <p class="project-description">Jeu de morpion développé en Java avec interface graphique Swing. Deux joueurs s'affrontent sur une grille 3×3 avec détection automatique de victoire et option de réinitialisation.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Swing</span>
-                        <span class="tech-badge">POO</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Programmation orientée objet en Java, interface graphique Swing, gestion des événements et logique de jeu</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="tictactoe">Voir le projet</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/Convertisseur.png" alt="Convertisseur Java — capture de l'application" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Convertisseur Java</h3>
-                    <p class="project-description">Application desktop Java de conversion d'unités : températures, distances, poids et devises. Interface graphique Swing intuitive avec conversion en temps réel à la saisie.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Swing</span>
-                        <span class="tech-badge">POO</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Conception d'interface Swing, gestion des événements, calculs de conversion, structuration en classes Java</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="convertisseur">Voir le projet</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="stage">
-                <div class="project-image">
-                    <img src="assets/img/stage1.png" alt="Délice Éternel Gabon — Stage UP2DATE-IT" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Stage · 1ère année</span>
-                    <h3>Stage — Délice Éternel Gabon</h3>
-                    <p class="project-description">Développement d'un site e-commerce de vêtements africains, bijoux et masques avec Angular 12 + Firebase. Architecture modulaire, gestion d'état NgRx, authentification, i18n et déploiement cloud.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Angular 12</span>
-                        <span class="tech-badge">NgRx</span>
-                        <span class="tech-badge">Firebase</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">SendGrid</span>
-                    </div>
-                    <div class="project-acquis">
-                        <p><strong>Acquis :</strong> Architecture Angular avancée, Firebase full-stack, gestion d'état NgRx, déploiement cloud en conditions réelles.</p>
-                    </div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B1 — Patrimoine informatique</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                        <span class="bts-badge">B6 — Développement professionnel</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="stage-1">Voir le projet</button>
-                        <a class="btn btn-outline btn-small" href="https://delice-eternel-gabon.web.app" target="_blank" rel="noopener noreferrer">Site déployé</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="stage">
-                <div class="project-image">
-                    <img src="assets/img/logostripe.png" alt="Stage 2ème année — Système paiement Stripe" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Stage · 5 semaines · 2ème année</span>
-                    <h3>Stage — Système de paiement Stripe</h3>
-                    <p class="project-description">Développement d'un module de paiement en ligne via Stripe Payment Links intégré à une plateforme Angular + Firebase existante. Génération automatique de liens, envoi par email (SendGrid), webhook de suivi des statuts en temps réel.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Angular</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">Firebase Functions</span>
-                        <span class="tech-badge">Firestore</span>
-                        <span class="tech-badge">Stripe API</span>
-                        <span class="tech-badge">SendGrid</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Stripe Payment Links &amp; Webhooks, Firebase Functions, Angular <code>httpsCallable()</code>, sécurité paiements, emails transactionnels, documentation technique professionnelle</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B5 — Documentation &amp; service</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="stage-2">Voir le projet</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="certification">
-                <div class="project-image">
-                    <img src="assets/img/angular-pokedex-app.png" alt="Pokédex Angular — application de gestion de Pokémon" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Certification Udemy · Angular</span>
-                    <h3>Pokédex Angular</h3>
-                    <p class="project-description">Application Angular complète de gestion de Pokémon : liste filtrée en temps réel, fiche détaillée, ajout, édition et suppression. Architecture moderne avec signaux, services et routing.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Angular</span>
-                        <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">RxJS</span>
-                        <span class="tech-badge">Bootstrap</span>
-                        <span class="tech-badge">JSON Server</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Composants standalone, signaux Angular, services HTTP, routing protégé (guards), directives personnalisées, formulaires réactifs</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="pokedex">Voir le projet</button>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/angular-pokedex-app" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
+        <div class="competence-table-wrap reveal reveal-delay-1" role="region" aria-label="Tableau de compétences BTS SIO SLAM" tabindex="0">
+            <table class="competence-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Projet</th>
+                        <th scope="col">Gérer le patrimoine</th>
+                        <th scope="col">Répondre aux incidents</th>
+                        <th scope="col">Présence en ligne</th>
+                        <th scope="col">Mode projet</th>
+                        <th scope="col">Mettre à disposition</th>
+                        <th scope="col">Dév. professionnel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="competence-project">Portfolio personnel</td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Auto-école Client léger PHP/MySQL</td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Auto-école Client lourd Java/Swing</td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Gestion de scolarité PHP/MySQL/XAMPP</td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Plateforme E-Enseignement WordPress</td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Boutique Shopify e-commerce</td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Snake Langage C</td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Tic-Tac-Toe Java desktop</td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="competence-project">Convertisseur Java desktop</td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-empty">—</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                        <td><span class="competence-valid">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.competence-table tbody tr').forEach((row) => {
+        row.addEventListener('mouseenter', () => row.setAttribute('aria-current', 'true'));
+        row.addEventListener('mouseleave', () => row.removeAttribute('aria-current'));
+    });
+</script>
 
 <!-- ====== VEILLE TECHNOLOGIQUE ====== -->
 <section id="veille" class="veille">
@@ -923,6 +1273,42 @@
             <h3>Conclusion — Veille Cybersécurité</h3>
             <p>Les failles web (XSS, SQL Injection, CSRF) restent parmi les plus exploitées en production. En tant que développeur, intégrer les bonnes pratiques OWASP dès la conception est une responsabilité professionnelle, pas une option.</p>
         </div>
+        <!-- Comment je reste informé -->
+        <div class="veille-sources reveal" style="margin-top:2.5rem;">
+            <h3 class="veille-sources-title">Comment je reste informé</h3>
+            <div class="veille-sources-grid">
+                <div class="veille-source-card">
+                    <div class="veille-source-icon">▶</div>
+                    <h4>Chaînes YouTube spécialisées</h4>
+                    <ul class="veille-source-list">
+                        <li>Fireship</li>
+                        <li>Traversy Media</li>
+                        <li>Web Dev Simplified</li>
+                        <li>Underscore_</li>
+                    </ul>
+                </div>
+                <div class="veille-source-card">
+                    <div class="veille-source-icon">🔔</div>
+                    <h4>Google Alertes</h4>
+                    <ul class="veille-source-list">
+                        <li>« IA développement web »</li>
+                        <li>« Cybersécurité web 2025 »</li>
+                        <li>« OWASP new release »</li>
+                        <li>« PHP sécurité »</li>
+                    </ul>
+                </div>
+                <div class="veille-source-card">
+                    <div class="veille-source-icon">📊</div>
+                    <h4>Comptes spécialisés sur la DATA</h4>
+                    <ul class="veille-source-list">
+                        <li>@KDnuggets (Twitter/X)</li>
+                        <li>Towards Data Science (Medium)</li>
+                        <li>@DataScienceWeekly</li>
+                        <li>Google AI Blog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </section>
@@ -1060,3 +1446,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+

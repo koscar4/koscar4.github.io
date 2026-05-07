@@ -87,7 +87,51 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => revealObserver.observe(el));
 
-// ===== 6. SKILL IMAGES FALLBACK =====
+// ===== 6. HERO TYPEWRITER =====
+const typewriterText = document.querySelector('.typewriter-text');
+const typewriterWords = [
+    'Étudiant développeur web & logiciel',
+    'BTS SIO SLAM · IRIS Paris',
+    'Angular · Firebase · TypeScript'
+];
+
+if (typewriterText) {
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function tickTypewriter() {
+        const currentWord = typewriterWords[wordIndex];
+        typewriterText.textContent = currentWord.slice(0, charIndex);
+
+        if (!isDeleting && charIndex < currentWord.length) {
+            charIndex += 1;
+            setTimeout(tickTypewriter, 80);
+            return;
+        }
+
+        if (!isDeleting) {
+            isDeleting = true;
+            setTimeout(tickTypewriter, 1500);
+            return;
+        }
+
+        if (charIndex > 0) {
+            charIndex -= 1;
+            setTimeout(tickTypewriter, 40);
+            return;
+        }
+
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % typewriterWords.length;
+        setTimeout(tickTypewriter, 80);
+    }
+
+    typewriterText.textContent = '';
+    tickTypewriter();
+}
+
+// ===== 7. SKILL IMAGES FALLBACK =====
 document.querySelectorAll('.skill-icon img').forEach(img => {
     img.addEventListener('error', function () {
         this.style.display = 'none';
@@ -96,7 +140,7 @@ document.querySelectorAll('.skill-icon img').forEach(img => {
     });
 });
 
-// ===== 7. FILTRAGE PROJETS =====
+// ===== 8. FILTRAGE PROJETS =====
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -470,42 +514,44 @@ const projectsData = {
         github: null
     },
     'stage-2': {
-        title: 'Stage 2ème année — Système de paiement Stripe',
-        image: 'assets/img/logostripe.png',
+        title: 'Stage – Migration Angular 12 → 21',
+        image: 'https://angular.io/assets/images/logos/angular/angular.svg',
         description: `
-            <h3>Implémentation d'un système de paiement en ligne via Stripe</h3>
-            <p><strong>Durée :</strong> 5 semaines &nbsp;|&nbsp; <strong>Stack :</strong> Angular + Firebase + Stripe + SendGrid</p>
+            <h3>Stage – Migration Angular 12 → 21</h3>
+            <p><strong>Métadonnées :</strong> Stage · 5 semaines · 2ème année BTS SIO SLAM</p>
 
             <h4 style="margin-top:1.2rem;">Contexte &amp; Objectifs</h4>
-            <p>Dans le cadre de mon stage de 2ème année BTS SIO SLAM, j'ai développé un <strong>module de paiement en ligne</strong> basé sur Stripe Payment Links, intégré à une plateforme de commande existante Angular + Firebase. L'objectif était de rendre le paiement simple, sécurisé et automatisé : génération des liens Stripe, envoi automatique par email, suivi des statuts en temps réel via webhooks.</p>
+            <p>Dans le cadre de mon stage de 2ème année BTS SIO SLAM chez UP2DATE-IT (sous-traitant Sopra-Stéria), j'ai effectué la migration complète d'une application web Angular de la version 12 vers la version 21. L'application, une SPA e-commerce appelée <strong>delice-eternel-gabon</strong>, repose sur Angular, NgRx, Firebase et AngularFire. L'objectif était de moderniser la base de code, améliorer les performances et assurer la compatibilité avec les évolutions récentes de l'écosystème Angular.</p>
 
             <h4 style="margin-top:1.2rem;">Déroulement semaine par semaine</h4>
             <ul>
-                <li><strong>S1 — Analyse :</strong> Prise en main de l'architecture Angular + Firebase + SendGrid. Étude du flux de commande, configuration Stripe en mode test.</li>
-                <li><strong>S2 — Firebase Function :</strong> Création de <code>createOrderPaymentLink()</code> : calcul du montant, génération du lien Stripe, stockage Firestore, retour de l'URL.</li>
-                <li><strong>S3 — Email &amp; Angular :</strong> Intégration SendGrid. Mise à jour du composant Angular avec bouton "Payer en ligne" et appel via <code>httpsCallable()</code>.</li>
-                <li><strong>S4 — Webhook Stripe :</strong> Fonction <code>stripeWebhook()</code> pour écouter <code>payment_link.completed</code> et mettre à jour Firestore : <em>pending → paid</em>. Vérification signature Stripe.</li>
-                <li><strong>S5 — Tests &amp; Documentation :</strong> Tests complets (paiements, erreurs, expirations). Rédaction de la documentation technique complète.</li>
+                <li><strong>S1 – Analyse &amp; prise en main :</strong> Étude de l'architecture existante (Angular 12, NgRx, Firebase compat), compréhension de l'organisation modulaire (Core, Shared, Features, Auth), identification des dépendances à migrer.</li>
+                <li><strong>S2 – Migration Angular 12 → 15 :</strong> Mise à jour progressive version par version via <code>ng update</code>, correction des erreurs NgRx (<code>@Effect</code> déprécié → <code>createEffect</code>), résolution des conflits de dépendances npm.</li>
+                <li><strong>S3 – Migration Angular 15 → 18 :</strong> Migration Firebase compat vers le SDK modulaire (ex : <code>firebase.firestore().collection()</code> → <code>collection(firestore, ...)</code>), adaptation du code source, correction des erreurs d'internationalisation (ngx-translate).</li>
+                <li><strong>S4 – Migration Angular 18 → 21 :</strong> Gestion des composants standalone, alignement des versions Angular/NgRx/AngularFire, tests de compilation et de démarrage après chaque version.</li>
+                <li><strong>S5 – Validation &amp; documentation :</strong> Tests complets de l'application migrée, vérification du bon fonctionnement de toutes les fonctionnalités, rédaction de la documentation technique de migration.</li>
             </ul>
 
             <h4 style="margin-top:1.2rem;">Difficultés rencontrées</h4>
             <ul>
-                <li><strong>Webhooks Stripe en local :</strong> Les webhooks nécessitent une URL publique — impossible en développement local standard.</li>
-                <li><strong>Sécurité de la signature :</strong> Valider correctement la signature Stripe pour éviter les faux événements malveillants.</li>
-                <li><strong>Synchronisation Angular/Firebase :</strong> Mettre à jour l'UI Angular en temps réel quand le statut Firestore change après le webhook.</li>
+                <li>Migration impossible en un seul saut : chaque version majeure introduit des breaking changes (API dépréciées, nouveaux concepts, dépendances incompatibles).</li>
+                <li>Conflits npm récurrents entre les versions Angular, NgRx et AngularFire nécessitant des réinstallations propres.</li>
+                <li>Transition Firebase compat → SDK modulaire : changement complet de la façon d'importer et d'utiliser Firebase dans tout le projet.</li>
+                <li>Composants générés automatiquement en standalone incompatibles avec les NgModules existants.</li>
             </ul>
 
             <h4 style="margin-top:1.2rem;">Solutions apportées</h4>
             <ul>
-                <li>Utilisation de <strong>Stripe CLI</strong> (<code>stripe listen --forward-to</code>) pour tunneliser les webhooks en local.</li>
-                <li>Vérification systématique avec <code>stripe.webhooks.constructEvent()</code> et la clé secrète webhook.</li>
-                <li>Souscription à un <strong>Firestore snapshot listener</strong> dans le composant Angular pour une mise à jour réactive.</li>
+                <li>Migration progressive version par version : Angular 12 → 13 → 14 → 15 → 16 → 17 → 18 → 19 → 20 → 21, en corrigeant les erreurs étape par étape.</li>
+                <li>Utilisation du guide officiel <code>angular.dev/update-guide</code> à chaque montée de version.</li>
+                <li>Réinstallation propre des dépendances à chaque migration majeure (<code>rm -rf node_modules &amp;&amp; npm cache clean --force &amp;&amp; npm install</code>).</li>
+                <li>Utilisation de l'IA (ChatGPT) comme assistant de débogage pour analyser les erreurs complexes, avec validation systématique par le tuteur avant application.</li>
             </ul>
 
             <h4 style="margin-top:1.2rem;">Résultat final</h4>
-            <p>Module de paiement entièrement opérationnel et documenté : génération automatique des liens Stripe, envoi email, suivi des statuts en temps réel. Livré avec rapport de stage et documentation technique complète (architecture, modèle Firestore, procédure de mise en production).</p>
+            <p>Application entièrement migrée d'Angular 12 vers Angular 21, fonctionnelle et stable. Architecture modernisée avec SDK Firebase modulaire, NgRx à jour et composants standalone. La migration a permis d'améliorer les performances, la maintenabilité et la compatibilité long terme du projet.</p>
 
-            <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B8 — Maintenance &amp; évolution · B9 — Gestion des données · B5 — Documentation</p>
+            <p><strong>Compétences BTS SIO :</strong> B7 – Développement applicatif · B8 – Maintenance &amp; évolution · B9 – Gestion des données · B5 – Documentation</p>
         `,
         demo: null,
         github: null
