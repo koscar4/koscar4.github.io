@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -59,12 +59,11 @@
         <div class="hero-content">
             <div class="hero-tag">BTS SIO SLAM · Paris</div>
             <h1>Oscar<br><span>Kévine</span> NGUEMA</h1>
-            <p class="hero-subtitle">Étudiant développeur web & logiciel</p>
+            <p class="hero-subtitle">
+                <span class="typewriter-text">Étudiant développeur web & logiciel</span><span class="typewriter-cursor" aria-hidden="true">|</span>
+            </p>
             <p class="hero-description">
-                En BTS SIO option SLAM à IRIS Paris,
-                 je conçois des applications web et logicielles,
-                  du back‑end au front‑end. J’ai réalisé plusieurs projets concrets,
-                   notamment des applications de gestion (auto‑école, scolarité), des sites web sous WordPress et des projets en programmation. Ces expériences m’ont permis de renforcer mes compétences techniques, ma logique de développement et mon autonomie.
+                En BTS SIO SLAM à IRIS Paris, je conçois des applications web & logicielles — du back-end au front-end. Projets concrets, stack moderne, autonomie.
             </p>
             <div class="hero-buttons">
                 <a href="#projets" class="btn btn-primary">Voir mes projets</a>
@@ -204,6 +203,64 @@ Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Ja
 
         <div class="projects-grid">
 
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Auto-école — Client Léger</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Auto-école — Client Lourd</h3>
+                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Swing</span>
+                        <span class="tech-badge">JDBC</span>
+                        <span class="tech-badge">MVC</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
             <article class="project-card reveal" data-category="scolaire">
                 <div class="project-image">
                     <img src="assets/img/projet-snake-c.svg" alt="Snake en C — capture du terminal" loading="lazy">
@@ -229,6 +286,88 @@ Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Ja
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="snake-c">Voir le projet</button>
                         <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snake_C" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Site E-Enseignement</h3>
+                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">CMS</span>
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">IONOS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B5 — Mise à disposition service</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Scolarité</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Boutique Shopify</h3>
+                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Shopify</span>
+                        <span class="tech-badge">Liquid</span>
+                        <span class="tech-badge">CSS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
                     </div>
                 </div>
             </article>
@@ -287,117 +426,6 @@ Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Ja
                 </div>
             </article>
 
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Boutique Shopify</h3>
-                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Shopify</span>
-                        <span class="tech-badge">Liquid</span>
-                        <span class="tech-badge">CSS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Site E-Enseignement</h3>
-                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">WordPress</span>
-                        <span class="tech-badge">CMS</span>
-                        <span class="tech-badge">Figma</span>
-                        <span class="tech-badge">IONOS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                        <span class="bts-badge">B5 — Mise à disposition service</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Auto-école — Client Lourd</h3>
-                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Swing</span>
-                        <span class="tech-badge">JDBC</span>
-                        <span class="tech-badge">MVC</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Auto-école — Client Léger</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
             <article class="project-card reveal" data-category="scolaire">
                 <div class="project-image">
                     <img src="assets/img/projet-glpi.png" alt="GLPI — Gestion de parc informatique" loading="lazy">
@@ -423,35 +451,6 @@ Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Ja
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="glpi">Voir le projet</button>
                         <a class="btn btn-secondary btn-small" href="assets/documentation-glpi.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation PDF</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Scolarité</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
                     </div>
                 </div>
             </article>
@@ -595,7 +594,6 @@ Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Ja
                 </div>
             </article>
 
-        </div>
     </div>
 </section>
 
