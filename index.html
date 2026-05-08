@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio d'Oscar Kévine NGUEMA — Étudiant BTS SIO SLAM à l'IRIS Paris. Développeur web PHP, Angular, Firebase. 9+ projets réalisés dont une migration Angular 12 vers 21 en stage.">
-    <meta name="keywords" content="Oscar NGUEMA, BTS SIO SLAM, développeur web, PHP, Angular, Firebase, NgRx, AngularFire, JavaScript, portfolio, Paris, IRIS">
+    <meta name="description" content="Portfolio d'Oscar Kévine NGUEMA — Étudiant BTS SIO SLAM à l'IRIS Paris. Développeur web PHP, Angular, Firebase. 9+ projets réalisés dont un système de paiement Stripe en stage.">
+    <meta name="keywords" content="Oscar NGUEMA, BTS SIO SLAM, développeur web, PHP, Angular, Firebase, Stripe, JavaScript, portfolio, Paris, IRIS">
     <meta name="author" content="Oscar Kévine NGUEMA">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#5B5FEF">
     <!-- Open Graph -->
     <meta property="og:title" content="Oscar Kévine NGUEMA — Portfolio BTS SIO SLAM">
-    <meta property="og:description" content="Étudiant développeur web BTS SIO SLAM. PHP, Angular, Firebase, NgRx. 9 projets réalisés, 2 certifications.">
+    <meta property="og:description" content="Étudiant développeur web BTS SIO SLAM. PHP, Angular, Firebase, Stripe. 9 projets réalisés, 2 certifications.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/img/hero-image.jpg">
     <meta property="og:locale" content="fr_FR">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Oscar Kévine NGUEMA — Portfolio">
-    <meta name="twitter:description" content="Développeur web BTS SIO SLAM — PHP, Angular, Firebase, NgRx">
-    <title>Oscar Kévine NGUEMA — Portfolio BTS SIO SLAM | Développeur Web</title>
+    <meta name="twitter:description" content="Développeur web BTS SIO SLAM — PHP, Angular, Firebase, Stripe">
+    <title>Oscar Kévine NGUEMA — Portfolio BTS SIO SLAM | Développemur Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,27 +26,24 @@
 <!-- ====== NAVIGATION ====== -->
 <nav class="navbar" role="navigation" aria-label="Navigation principale">
     <div class="nav-container">
-        <div class="nav-brand">
-            <div class="nav-logo">
-                <a href="#accueil" aria-label="Retour à l'accueil">Portfolio<span>.</span></a>
-            </div>
-
-            <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+        <div class="nav-logo">
+            <a href="#accueil" aria-label="Retour à l'accueil">Portfolio<span>.</span></a>
         </div>
 
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#parcours">À propos</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#tableau-competences">Tableau</a></li>
-            <li><a href="#veille">Veille Tech</a></li>
-            <li><a href="#objectif">Objectif</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#parcours">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#veille">Veille Tech</a></li>
+                <li><a href="#objectif">Objectif</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="cv.html" target="_blank" rel="noopener" style="font-weight:700;">CV</a></li>
+            </ul>
 
-        <div class="nav-actions">
-            <a class="nav-cv" href="cv.html" target="_blank" rel="noopener">CV</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+
             <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -60,16 +57,13 @@
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-tag">BTS SIO SLAM · Paris</div>
-            <h1 class="hero-name" aria-label="Oscar Kévine NGUEMA">
-                <span class="hero-name-line hero-name-line-white">Oscar</span>
-                <span class="hero-name-line">Kévine</span>
-                <span class="hero-name-line hero-name-line-white">NGUEMA</span>
-            </h1>
-            <p class="hero-subtitle">
-                <span class="typewriter-text">Étudiant développeur web & logiciel</span><span class="typewriter-cursor" aria-hidden="true">|</span>
-            </p>
+            <h1>Oscar<br><span>Kévine</span> NGUEMA</h1>
+            <p class="hero-subtitle">Étudiant développeur web & logiciel</p>
             <p class="hero-description">
-                En BTS SIO SLAM à IRIS Paris, je conçois des applications web & logicielles — du back-end au front-end. Projets concrets, stack moderne, autonomie.
+                En BTS SIO option SLAM à IRIS Paris,
+                 je conçois des applications web et logicielles,
+                  du back‑end au front‑end. J’ai réalisé plusieurs projets concrets,
+                   notamment des applications de gestion (auto‑école, scolarité), des sites web sous WordPress et des projets en programmation. Ces expériences m’ont permis de renforcer mes compétences techniques, ma logique de développement et mon autonomie.
             </p>
             <div class="hero-buttons">
                 <a href="#projets" class="btn btn-primary">Voir mes projets</a>
@@ -135,15 +129,13 @@
                 <div class="about-intro reveal reveal-delay-2">
                     <h3>Qui suis-je ?</h3>
                     <p>
-                        Je suis <strong>Oscar Kévine Nguema</strong>, étudiant en <strong>BTS SIO option SLAM</strong> à IRIS Paris.
-                        Je m'oriente vers le développement d'applications web et logicielles, avec un intérêt particulier
-                        pour la structuration du code, les bases de données et la sécurité.
+                        Je suis <strong>Oscar Kévine NGUEMA</strong>, étudiant en <strong>BTS SIO option SLAM</strong> à IRIS Paris.
+                        Je m’oriente vers le développement d’applications web et logicielles, avec un intérêt particulier pour la structuration du code,
+                     les bases de données et la sécurité.
+Au cours de ma formation, j’ai réalisé plusieurs projets concrets en PHP, Java et MySQL, en lien avec des besoins métiers.
+
                     </p>
-                    <p>
-                        Au cours de ma formation, j'ai réalisé plusieurs projets concrets en PHP, Java et MySQL,
-                        en lien avec des besoins métiers. Je développe progressivement un profil orienté développement
-                        applicatif et web.
-                    </p>
+                    
                 </div>
 
                 <div class="about-cards">
@@ -157,8 +149,8 @@
                         <h3>Éducation</h3>
                         <ul>
                             <li>
-                                <strong>BTS SIO SLAM 1</strong>
-                                <span>Lycée René Descartes, Gabon</span>
+                                <strong>BTS SIO SLAM</strong>
+                                <span>ITIC Paris, Gabon</span>
                             </li>
                             <li>
                                 <strong>BTS SIO SLAM</strong>
@@ -184,7 +176,7 @@
                             </li>
                             <li>
                                 <strong>Stage 2ème année</strong>
-                                <span>Migration Angular 12 → 21</span>
+                                <span>Module de paiement Stripe</span>
                             </li>
                         </ul>
                     </article>
@@ -213,64 +205,6 @@
 
             <article class="project-card reveal" data-category="scolaire">
                 <div class="project-image">
-                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Auto-école — Client Léger</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Auto-école — Client Lourd</h3>
-                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Swing</span>
-                        <span class="tech-badge">JDBC</span>
-                        <span class="tech-badge">MVC</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
-                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
                     <img src="assets/img/projet-snake-c.svg" alt="Snake en C — capture du terminal" loading="lazy">
                 </div>
                 <div class="project-content">
@@ -294,88 +228,6 @@
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="snake-c">Voir le projet</button>
                         <a class="btn btn-small btn-github" href="https://github.com/koscar4/Snake_C" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire · Équipe</span>
-                    <h3>Site E-Enseignement</h3>
-                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">WordPress</span>
-                        <span class="tech-badge">CMS</span>
-                        <span class="tech-badge">Figma</span>
-                        <span class="tech-badge">IONOS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                        <span class="bts-badge">B5 — Mise à disposition service</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Scolarité</h3>
-                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">HTML/CSS</span>
-                        <span class="tech-badge">MVC</span>
-                        <span class="tech-badge">XAMPP</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B7 — Développement applicatif</span>
-                        <span class="bts-badge">B9 — Gestion des données</span>
-                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
-                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
-                <div class="project-image">
-                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <span class="project-badge">Projet scolaire</span>
-                    <h3>Boutique Shopify</h3>
-                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Shopify</span>
-                        <span class="tech-badge">Liquid</span>
-                        <span class="tech-badge">CSS</span>
-                    </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
-                    <div class="project-bts">
-                        <span class="project-bts-label">Compétences BTS SIO</span>
-                        <span class="bts-badge">B3 — Présence en ligne</span>
-                        <span class="bts-badge">B4 — Mode projet</span>
-                    </div>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
                     </div>
                 </div>
             </article>
@@ -434,6 +286,117 @@
                 </div>
             </article>
 
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/Shopify-Logo-PNG.png" alt="Shopify — logo de la plateforme e-commerce" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Boutique Shopify</h3>
+                    <p class="project-description">Création et configuration complète d'une boutique e-commerce : catalogue produits, pages collections, intégration du paiement et personnalisation du thème Liquid.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Shopify</span>
+                        <span class="tech-badge">Liquid</span>
+                        <span class="tech-badge">CSS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Administration e-commerce, langage de templating Liquid, optimisation UX boutique</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="shopify">Voir le projet</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-E-enseignement.png" alt="Site E-Enseignement — plateforme WordPress" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire · Équipe</span>
+                    <h3>Site E-Enseignement</h3>
+                    <p class="project-description">Plateforme d'enseignement en ligne développée en équipe avec WordPress et hébergée sur IONOS. Maquettes Figma, gestion de contenu CMS et sécurisation du site.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">CMS</span>
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">IONOS</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Travail en équipe, maquettage Figma, déploiement sur hébergeur, sécurisation WordPress</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B3 — Présence en ligne</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                        <span class="bts-badge">B5 — Mise à disposition service</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="ecommerce">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="https://gamma.app/docs/Projet-E-enseignement-avec-WordPress-3zd77xaly4yq8iv" target="_blank" rel="noopener noreferrer">Présentation</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-lourd.png" alt="Application client lourd pour auto-école" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Auto-école — Client Lourd</h3>
+                    <p class="project-description">Application desktop Java de gestion complète d'auto-école : élèves, moniteurs, planning, paiements et exports PDF. Interface graphique Swing avec architecture MVC et connexion JDBC.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Swing</span>
+                        <span class="tech-badge">JDBC</span>
+                        <span class="tech-badge">MVC</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Architecture MVC en Java, GUI Swing, connexion BDD via JDBC, génération PDF, gestion des rôles</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B4 — Mode projet</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-lourd">Voir le projet</button>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/Projet_autoecole_client_lourd" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-2" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/autoecole-client-leger.png" alt="Auto-école — Client Léger" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Auto-école — Client Léger</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion d'auto-école : candidats, moniteurs, véhicules, cours. CRUD complet, sessions sécurisées, architecture MVC et interface responsive.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, requêtes SQL paramétrées, architecture MVC PHP, gestion des sessions et sécurité</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="auto-leger">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/projet_autoecole/" target="_blank" rel="noopener noreferrer">Démo locale</a>
+                        <a class="btn btn-small btn-github" href="https://github.com/koscar4/projetautoecole" target="_blank" rel="noopener noreferrer"><img src="assets/img/skills/github.svg" alt="" class="btn-icon-github"> GitHub</a>
+                    </div>
+                </div>
+            </article>
+
             <article class="project-card reveal" data-category="scolaire">
                 <div class="project-image">
                     <img src="assets/img/projet-glpi.png" alt="GLPI — Gestion de parc informatique" loading="lazy">
@@ -459,6 +422,35 @@
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="glpi">Voir le projet</button>
                         <a class="btn btn-secondary btn-small" href="assets/documentation-glpi.pdf" target="_blank" rel="noopener noreferrer">📄 Documentation PDF</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal reveal-delay-1" data-category="scolaire">
+                <div class="project-image">
+                    <img src="assets/img/projet-scolarite.png" alt="Application de gestion de scolarité" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <span class="project-badge">Projet scolaire</span>
+                    <h3>Scolarité</h3>
+                    <p class="project-description">Application web PHP/MySQL de gestion scolaire : étudiants, classes, matières, professeurs. Connexion administrateur sécurisée, opérations CRUD complètes, affichage dynamique.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                        <span class="tech-badge">MVC</span>
+                        <span class="tech-badge">XAMPP</span>
+                    </div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> CRUD complet, architecture MVC PHP, connexion PDO, organisation vues/contrôleurs, authentification admin</p></div>
+                    <div class="project-bts">
+                        <span class="project-bts-label">Compétences BTS SIO</span>
+                        <span class="bts-badge">B7 — Développement applicatif</span>
+                        <span class="bts-badge">B9 — Gestion des données</span>
+                        <span class="bts-badge">B8 — Maintenance &amp; évolution</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary btn-small" data-project="scolarite">Voir le projet</button>
+                        <a class="btn btn-secondary btn-small" href="http://localhost/SCOLARITE/index.php?page=1" target="_blank" rel="noopener noreferrer">Démo locale</a>
                     </div>
                 </div>
             </article>
@@ -546,22 +538,21 @@
 
             <article class="project-card reveal" data-category="stage">
                 <div class="project-image">
-                    <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Logo Angular — Stage migration Angular" loading="lazy">
+                    <img src="assets/img/logostripe.png" alt="Stage 2ème année — Système paiement Stripe" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-badge">Stage · 5 semaines · 2ème année</span>
-                    <h3>Stage – Migration Angular 12 → 21</h3>
-                    <p class="project-description">Migration progressive d'une SPA e-commerce (Angular 12 → 13 → … → 21) pour l'entreprise UP2DATE-IT. Modernisation de l'architecture, migration du SDK Firebase compat vers le SDK modulaire, et mise à jour de NgRx.</p>
+                    <h3>Stage — Système de paiement Stripe</h3>
+                    <p class="project-description">Développement d'un module de paiement en ligne via Stripe Payment Links intégré à une plateforme Angular + Firebase existante. Génération automatique de liens, envoi par email (SendGrid), webhook de suivi des statuts en temps réel.</p>
                     <div class="project-tech">
                         <span class="tech-badge">Angular</span>
                         <span class="tech-badge">TypeScript</span>
-                        <span class="tech-badge">NgRx</span>
-                        <span class="tech-badge">Firebase</span>
-                        <span class="tech-badge">AngularFire</span>
-                        <span class="tech-badge">Angular Material</span>
-                        <span class="tech-badge">ngx-translate</span>
+                        <span class="tech-badge">Firebase Functions</span>
+                        <span class="tech-badge">Firestore</span>
+                        <span class="tech-badge">Stripe API</span>
+                        <span class="tech-badge">SendGrid</span>
                     </div>
-                    <div class="project-acquis"><p><strong>Acquis :</strong> Migration progressive Angular (12→21), SDK Firebase modulaire, NgRx <code>createEffect</code>, composants standalone, résolution de conflits npm/dépendances, internationalisation (ngx-translate), utilisation de l'IA comme assistant technique de débogage</p></div>
+                    <div class="project-acquis"><p><strong>Acquis :</strong> Stripe Payment Links &amp; Webhooks, Firebase Functions, Angular <code>httpsCallable()</code>, sécurité paiements, emails transactionnels, documentation technique professionnelle</p></div>
                     <div class="project-bts">
                         <span class="project-bts-label">Compétences BTS SIO</span>
                         <span class="bts-badge">B7 — Développement applicatif</span>
@@ -571,7 +562,6 @@
                     </div>
                     <div class="project-buttons">
                         <button class="btn btn-primary btn-small" data-project="stage-2">Voir le projet</button>
-                        <a class="btn btn-outline btn-small" href="assets/rapport-stage-2-angular.pdf" target="_blank" rel="noopener noreferrer">Rapport de stage</a>
                     </div>
                 </div>
             </article>
@@ -642,7 +632,7 @@
                 <div class="skill-item">
                     <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="Angular logo" width="45"><span class="icon-fallback" style="font-size:0.65rem;background:#DD0031;color:#fff;border-radius:4px;padding:2px 4px;">ANG</span></div>
                     <h4>Angular</h4>
-                    <p>Développement d'applications web (Pokédex, migration Angular 12 vers 21) avec routing, services, appels API (HttpClient) et structuration en composants.</p>
+                    <p>Développement d'applications web (Pokédex, module Stripe) avec routing, services, appels API (HttpClient) et structuration en composants.</p>
                     <span class="skill-level skill-level--intermediaire">Intermédiaire</span>
                 </div>
                 <div class="skill-item">
@@ -667,7 +657,7 @@
                 <div class="skill-item">
                     <div class="skill-icon"><img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase logo" width="50"><span class="icon-fallback" style="font-size:0.7rem;background:#FFCA28;color:#333;border-radius:4px;padding:2px 4px;">FB</span></div>
                     <h4>Firebase</h4>
-                    <p>Intégration de solutions cloud : Firebase modulaire, Firestore, Auth et adaptation AngularFire dans une application e-commerce migrée.</p>
+                    <p>Intégration de solutions cloud : Firebase Functions pour webhooks Stripe et Firestore pour la gestion en temps réel des données de paiement.</p>
                     <span class="skill-level skill-level--intermediaire">Intermédiaire</span>
                 </div>
                 <div class="skill-item">
@@ -759,315 +749,6 @@
         </div>
     </div>
 </section>
-
-<!-- ====== TABLEAU DE COMPÉTENCES ====== -->
-<style>
-    .competence-table-section {
-        min-height: calc(100vh - var(--nav-h));
-        display: flex;
-        align-items: center;
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
-        background:
-            linear-gradient(rgba(15, 15, 26, .94), rgba(15, 15, 26, .96)),
-            linear-gradient(135deg, #2B2FCC 0%, #5B5FEF 46%, #7B7FFF 100%);
-        color: #fff;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .competence-table-section::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-            linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
-        background-size: 48px 48px;
-        -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-        mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-    }
-
-    .competence-table-section .container {
-        position: relative;
-        z-index: 1;
-    }
-
-    .competence-table-title {
-        text-align: center;
-        margin-bottom: .55rem;
-        color: #fff;
-        font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-        letter-spacing: 0;
-    }
-
-    .competence-table-title .title-main {
-        color: #8B8EFF;
-    }
-
-    .competence-table-title .title-accent {
-        color: var(--accent-2);
-    }
-
-    .competence-table-reference {
-        text-align: center;
-        color: rgba(255, 255, 255, .58);
-        font-size: .9rem;
-        font-weight: 600;
-        margin: 0 0 1.55rem;
-    }
-
-    .competence-table-wrap {
-        background: rgba(255, 255, 255, .075);
-        border: 1px solid rgba(139, 142, 255, .24);
-        border-radius: var(--radius-xl);
-        box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .competence-table-wrap::-webkit-scrollbar {
-        height: 10px;
-    }
-
-    .competence-table-wrap::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, .06);
-        border-radius: var(--radius-full);
-    }
-
-    .competence-table-wrap::-webkit-scrollbar-thumb {
-        background: rgba(139, 142, 255, .55);
-        border-radius: var(--radius-full);
-    }
-
-    .competence-table {
-        width: 100%;
-        table-layout: fixed;
-        border-collapse: collapse;
-        color: #fff;
-    }
-
-    .competence-table thead {
-        background: rgba(255, 255, 255, .07);
-    }
-
-    .competence-table th {
-        padding: .85rem .65rem;
-        text-align: left;
-        color: var(--accent-2);
-        font-size: .62rem;
-        font-weight: 800;
-        letter-spacing: .9px;
-        text-transform: uppercase;
-        border-bottom: 1px solid rgba(255, 255, 255, .12);
-    }
-
-    .competence-table th:first-child {
-        width: 26%;
-    }
-
-    .competence-table th:not(:first-child),
-    .competence-table td:not(:first-child) {
-        text-align: center;
-    }
-
-    .competence-table td {
-        padding: .72rem .65rem;
-        border-bottom: 1px solid rgba(255, 255, 255, .08);
-        color: rgba(255, 255, 255, .76);
-        font-size: .86rem;
-        transition: background var(--t), color var(--t);
-    }
-
-    .competence-table tbody tr {
-        transition: background var(--t), transform var(--t);
-    }
-
-    .competence-table tbody tr:hover {
-        background: rgba(139, 142, 255, .11);
-    }
-
-    .competence-table tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    .competence-project {
-        color: #fff;
-        font-weight: 700;
-        line-height: 1.3;
-    }
-
-    .competence-valid {
-        color: var(--success);
-        font-size: 1.18rem;
-        font-weight: 900;
-        line-height: 1;
-    }
-
-    .competence-empty {
-        color: rgba(255, 255, 255, .38);
-        font-size: 1.1rem;
-        font-weight: 700;
-        line-height: 1;
-    }
-
-    @media (max-width: 1100px) {
-        .competence-table {
-            min-width: 900px;
-            table-layout: auto;
-        }
-
-        .competence-table th:first-child {
-            width: auto;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .competence-table-section {
-            min-height: auto;
-            display: block;
-        }
-
-        .competence-table-title {
-            margin-bottom: .45rem;
-        }
-
-        .competence-table-wrap {
-            border-radius: var(--radius-lg);
-        }
-
-        .competence-table {
-            min-width: 860px;
-        }
-
-        .competence-table th,
-        .competence-table td {
-            padding: .72rem .75rem;
-            font-size: .82rem;
-        }
-
-        .competence-table th {
-            font-size: .6rem;
-        }
-    }
-</style>
-
-<section id="tableau-competences" class="competence-table-section">
-    <div class="container">
-        <h2 class="competence-table-title reveal">
-            <span class="title-main">Tableau de </span><span class="title-accent">Compétences</span>
-        </h2>
-        <p class="competence-table-reference reveal">Référentiel BTS SIO officiel</p>
-
-        <div class="competence-table-wrap reveal reveal-delay-1" role="region" aria-label="Tableau de compétences BTS SIO SLAM" tabindex="0">
-            <table class="competence-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Projet</th>
-                        <th scope="col">Gérer le patrimoine</th>
-                        <th scope="col">Répondre aux incidents</th>
-                        <th scope="col">Présence en ligne</th>
-                        <th scope="col">Mode projet</th>
-                        <th scope="col">Mettre à disposition</th>
-                        <th scope="col">Dév. professionnel</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="competence-project">Portfolio personnel</td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Auto-école Client léger PHP/MySQL</td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Auto-école Client lourd Java/Swing</td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Gestion de scolarité PHP/MySQL/XAMPP</td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Plateforme E-Enseignement WordPress</td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Boutique Shopify e-commerce</td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Snake Langage C</td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Tic-Tac-Toe Java desktop</td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td class="competence-project">Convertisseur Java desktop</td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-empty">—</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                        <td><span class="competence-valid">✓</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<script>
-    document.querySelectorAll('.competence-table tbody tr').forEach((row) => {
-        row.addEventListener('mouseenter', () => row.setAttribute('aria-current', 'true'));
-        row.addEventListener('mouseleave', () => row.removeAttribute('aria-current'));
-    });
-</script>
 
 <!-- ====== VEILLE TECHNOLOGIQUE ====== -->
 <section id="veille" class="veille">
@@ -1446,5 +1127,4 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 
