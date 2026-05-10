@@ -315,15 +315,16 @@ const projectsData = {
         contain: true,
         description: `
             <h3>Application desktop de gestion d'auto-école</h3>
-            <p><strong>Contexte :</strong> Projet scolaire de développement d'une application Java avec interface graphique Swing pour gérer complètement une auto-école.</p>
-            <p><strong>Objectifs :</strong> Maîtriser la programmation orientée objet en Java, concevoir une GUI avec Swing, connecter une base de données via JDBC et appliquer l'architecture MVC.</p>
+            <p><strong>Contexte :</strong>Dans le cadre de notre projet de BTS SIO, nous avons développé en équipe de trois, avec Joel NSIMBA et Drame, une application client lourd en Java. Ce projet s'inscrit dans un écosystème complet où notre application de bureau vient en complément du client léger PHP, qui est un site web permettant aux utilisateurs d’accéder à notre plateforme de gestion d'auto-école.</p>
+            <p><strong>Réalisations :</strong>Nous avons utilisé Swing pour concevoir l’interface graphique et adopté une architecture MVC (Modèle-Vue-Contrôleur) afin de structurer proprement notre code et faciliter la maintenance. L’application permet aux administrateurs du site de gérer efficacement la plateforme grâce aux fonctionnalités suivantes :</p>
             <p><strong>Fonctionnalités :</strong></p>
             <ul>
-                <li>Gestion des élèves (inscription, suivi, résultats)</li>
+                 <li>Formulaire de connexion avec email + mot de passe</li>
+                <li>Gestion des leçons</li>
+                 <li>Gestion des élèves (inscription, suivi..)</li>
                 <li>Gestion des moniteurs et planning des leçons</li>
-                <li>Suivi des paiements et facturation</li>
-                <li>Génération de rapports et exports PDF</li>
-                <li>Authentification avec rôles (admin, secrétaire, moniteur)</li>
+                <li> Gestion des Véhicules</li>
+                <li>Statistiques</li>
             </ul>
             <p><strong>Difficulté rencontrée :</strong> Gérer la synchronisation entre l'interface Swing (thread EDT) et les requêtes base de données JDBC sans bloquer l'UI.</p>
             <p><strong>Solution apportée :</strong> Utilisation de <code>SwingWorker</code> pour exécuter les opérations BDD en arrière-plan et mettre à jour l'UI de façon thread-safe.</p>
@@ -331,17 +332,16 @@ const projectsData = {
             <p><strong>Compétences BTS :</strong> B7 — Développement applicatif · B9 — Gestion des données · B4 — Mode projet</p>
             <div class="modal-teamwork">
                 <h4>👥 Travail en équipe</h4>
-                <p>Projet réalisé en groupe dans le cadre du BTS SIO.</p>
-                <p><strong>Mon rôle principal :</strong></p>
+                <p>Ce projet nous a permis d’expérimenter un véritable travail en équipe, en répartissant les tâches selon nos compétences respectives :</p>
+                <p><strong>Répartition du travail:</strong></p>
                 <ul>
-                    <li>Développement de l'interface graphique (Swing)</li>
-                    <li>Implémentation des connexions JDBC</li>
-                    <li>Gestion des interactions entre UI et base de données</li>
+                    <li>Moi (Oscar) j’ai pris en charge de l’architecture du projet et de la gestion de la base de données.</li>
+                    <li>Drame a travaillé sur la liaison entre le client lourd et le serveur web.</li>
+                    <li>Joel a pris en charge la conception de l’interface graphique et l’implémentation des interactions avec les administrateurs.</li>
                 </ul>
-                <p><strong>Organisation :</strong></p>
+                <p><strong>Conclusion :</strong></p>
                 <ul>
-                    <li>Répartition des tâches</li>
-                    <li>Travail collaboratif et intégration des modules</li>
+                    <li> Ce projet nous a permis d’acquérir de solides compétences en programmation Java avancée, en manipulation de bases de données et en structuration d’un projet en équipe.</li>
                 </ul>
             </div>`,
         demo: null,
@@ -351,6 +351,9 @@ const projectsData = {
         title: 'Auto-école — Client Léger (PHP/MySQL)',
         images: [
             'assets/img/autoecole-client-leger.png',
+            'assets/img/trello-autoecole.png',
+            'assets/img/DCU_admin.png',
+            'assets/img/DCU_candidat.png',
             'assets/img/autoecole-mcd.png',
             'assets/img/autoecole-inscription.png',
             'assets/img/autoecole-lecons.png',
@@ -358,8 +361,8 @@ const projectsData = {
         ],
         description: `
             <h3>Application web de gestion d'auto-école</h3>
-            <p><strong>Contexte :</strong> Version web de la gestion d'auto-école, accessible via navigateur, développée en PHP/MySQL avec architecture MVC sous XAMPP.</p>
-            <p><strong>Objectifs :</strong> Implémenter un CRUD complet, sécuriser les accès via sessions PHP, organiser le code en MVC et réaliser des requêtes SQL paramétrées.</p>
+            <p><strong>Contexte :</strong> Dans le cadre de notre BTS SIO, nous avons développé en équipe de trois (Joel, Drame et moi) un site web dynamique en PHP avec une architecture MVC pour la gestion de l'auto-école Castellane. Ce client léger fonctionne avec une base de données SQL et permet aux administrateurs de gerer les leçons de conduite,les élèves,les moniteurs, les véhicules et la facturation.</p>
+            <p><strong>Objectifs :</strong> Développement d’une application web full stack en PHP/MySQL suivant une architecture MVC permettant la gestion complète des clients, moniteurs, véhicules et leçons, avec sécurisation des accès et gestion des contraintes métier.</p>
             <p><strong>Fonctionnalités :</strong></p>
             <ul>
                 <li>Gestion des candidats, moniteurs et véhicules</li>
@@ -375,19 +378,13 @@ const projectsData = {
             <div class="modal-teamwork">
                 <h4>👥 Travail en équipe</h4>
                 <p>Projet réalisé en groupe dans le cadre du BTS SIO.</p>
-                <p><strong>Mon rôle principal :</strong></p>
+                <p><strong>Répartition du travail :</strong></p>
                 <ul>
-                    <li>Conception et mise en place de l'architecture MVC</li>
-                    <li>Développement du back-end (PHP)</li>
-                    <li>Gestion des accès aux données (PDO, requêtes SQL)</li>
-                    <li>Mise en place du système d'authentification (sessions)</li>
+                    <li><strong>Moi :</strong> gestion de la base de données SQL et optimisation des requêtes</li>
+                    <li><strong>Joel :</strong> logique métier et contrôleur MVC</li>
+                    <li><strong>Drame :</strong> interface utilisateur et expérience utilisateur (UI/UX)</li>
                 </ul>
-                <p><strong>Travail en collaboration :</strong></p>
-                <ul>
-                    <li>Répartition des tâches via Trello</li>
-                    <li>Suivi de l'avancement du projet</li>
-                    <li>Intégration des différentes parties développées par l'équipe</li>
-                </ul>
+                <p>Ce projet nous a permis de renforcer nos compétences en développement web full-stack et en gestion de bases de données, tout en travaillant sur une solution fonctionnelle et évolutive.</p>
             </div>`,
         demo: 'http://localhost/projet_autoecole/',
         github: 'https://github.com/koscar4/Client_leger_autoecole'
@@ -488,26 +485,28 @@ const projectsData = {
                 <strong>Responsable :</strong> M'VOU Aristide Wylfrand (Président)<br>
                 <strong>Période :</strong> 24 novembre 2025 → 2 janvier 2026 &nbsp;|&nbsp; <strong>Durée :</strong> 5 semaines
             </p>
-            <p><strong>Contexte :</strong> Développement d'un site e-commerce de vêtements africains, bijoux et masques dans le cadre de mon stage de 1ère année BTS SIO SLAM.</p>
+            <p><strong>Contexte :</strong>Délice Éternel Gabon est un projet e-commerce de vente de vêtements africains, bijoux et masques.
+Dans le cadre de mon stage de 1ère année BTS SIO SLAM, j’ai participé à la conception et à l’amélioration de l’application Angular, en intervenant principalement sur l’internationalisation, l’intégration Firebase et l’expérience utilisateur.</p>
 
-            <h4 style="margin-top:1.2rem;">Réalisations</h4>
+            <h4 style="margin-top:1.2rem;">Mission réalisée</h4>
             <ul>
-                <li><strong>Architecture modulaire Angular 12</strong> — AuthModule, CoreModule, FeaturesModule, WelcomeModule, ShoppingCartModule</li>
-                <li><strong>Routing avec lazy loading</strong> sur 4 modules : tenues (<code>/dresses</code>), bijoux (<code>/earings</code>), masques (<code>/masks</code>), panier (<code>/shopping-cart</code>)</li>
-                <li><strong>Gestion d'état NgRx Store</strong> — chargement automatique des 3 catégories produits au démarrage via Actions</li>
-                <li><strong>Internationalisation multi-langue</strong> avec <code>@ngx-translate/core</code> (fichiers JSON dans <code>assets/i18n/</code>)</li>
-                <li><strong>Authentification</strong> utilisateur via Firebase Auth + AngularFire</li>
-                <li><strong>Intégration Firebase complète</strong> : Firestore (BDD), Storage (images), Functions (backend), Hosting (déploiement)</li>
-                <li><strong>Optimisation des images</strong> produits via Firebase Storage</li>
-                <li><strong>Notifications email automatiques</strong> avec SendGrid via Firebase Functions</li>
-                <li><strong>Animations de transition</strong> entre pages (<code>routerTransition</code>)</li>
-                <li><strong>Déploiement en production</strong> sur Firebase Hosting</li>
+                <li><strong>Mise en place de l’internationalisation multi-langue avec @ngx-translate/core</strong></li>
+                <li><strong>Création et organisation des fichiers JSON de traduction dans assets/i18n</li>
+                <li><strong>Intégration de Firebase : Firestore, Storage, Functions et Hosting</strong></li>
+                <li><strong>Optimisation des images produits via Firebase Storage</strong></li>
+                <li><strong>Ajout d’animations de transition entre les pages avec routerTransition</strong></li>
+                <li><strong>Participation à l’amélioration de l’architecture modulaire Angular</strong></li>
+                
             </ul>
 
             <h4 style="margin-top:1.2rem;">Stack technique</h4>
             <p><strong>Frontend :</strong> Angular 12 · TypeScript · SCSS · Bootstrap 4 · Angular Material · RxJS · Font Awesome</p>
             <p><strong>Backend / Cloud :</strong> Firebase Auth · Firestore · Firebase Storage · Firebase Functions · Firebase Hosting · SendGrid</p>
             <p><strong>State / Outils :</strong> NgRx · @ngx-translate · jQuery</p>
+
+        <h4 style="margin-top:1.2rem;">Acquis</h4>
+                    <p><strong>Ce stage m’a permis de renforcer mes compétences sur Angular, Firebase, l’internationalisation d’une application web, l’optimisation des médias et le déploiement cloud.</p>
+
 
             <p><strong>Compétences BTS :</strong> B1 — Patrimoine informatique · B4 — Mode projet · B6 — Développement professionnel</p>`,
         demo: 'https://delice-eternel-gabon.web.app',
